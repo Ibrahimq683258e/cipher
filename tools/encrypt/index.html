@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cipher - Free Online Security &amp; File Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#111317">
+  <meta name="apple-mobile-web-app-title" content="Cipher">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/tools/encrypt/">
+  <meta name="description" content="Encrypt and decrypt files privately in your browser with secure AES-256-GCM encryption and PBKDF2 password protection. No uploads, no servers, and no tracking.">
+  <meta name="keywords" content="free file encryption, AES-256-GCM encryptor, offline file encryption, private file protection, browser encryption, no upload encryptor">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cipher - Secure Client-Side File Encryptor">
+  <meta property="og:description" content="Protect sensitive files privately in your browser with AES-256-GCM encryption. No uploads, no servers, and no tracking.">
+  <meta property="og:url" content="https://example.com/tools/encrypt/">
+  <meta property="og:image" content="/images/Cipher.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cipher - Secure Client-Side File Encryptor">
+  <meta name="twitter:description" content="Protect sensitive files privately in your browser with secure client-side encryption.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cipher - Free Online Security & File Tools",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any",
+      "description": "A private, client-side file encryption tool using AES-256-GCM and PBKDF2.",
+      "browserRequirements": "Requires a modern browser with Web Crypto API support.",
+      "featureList": ["Client-side file encryption", "AES-256-GCM", "PBKDF2 password protection", "Offline capable"]
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="nav-brand">
+        <span class="nav-brand-media" aria-hidden="true">
+          <img src="/images/Cipher.png" alt="Cipher Logo">
+        </span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-toggle-label">Menu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#security-tools">Security Tools</a></li>
+        <li><a href="/#file-tools">File Tools</a></li>
+        <li><button class="theme-toggle-btn" title="Toggle Theme" type="button"></button></li>
+        <li><a href="#encryptor" class="btn-nav">Protect File <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="masthead">
+    <div class="container">
+      <h1 class="masthead-title">Client-Side File Encryption,<br>Simple and Secure</h1>
+      <p class="masthead-subtitle">Protect sensitive files with password encryption powered by standard Web Crypto APIs.
+        Runs 100% locally in your browser — zero file uploads, zero server tracking.</p>
+      <a href="#encryptor" class="hero-cta">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4.5" y="10.5" width="15" height="10" rx="2.2" />
+          <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+        </svg>
+        Launch Encryptor
+      </a>
+    </div>
+  </header>
+
+  <!-- Encryptor App Section -->
+  <section id="encryptor" class="tool-section">
+    <div class="container">
+      <div class="window" id="window">
+
+        <!-- Window Header -->
+        <div class="window-header">
+          <div class="brand">
+          </div>
+          <div class="window-status-actions">
+            <div class="local-pill" id="localStatus"><span class="dot"></span><span id="localStatusText">Online</span></div>
+          </div>
+        </div>
+
+        <!-- Mode Selector -->
+        <div class="segmented" id="segmented" data-mode="encrypt">
+          <div class="thumb"></div>
+          <button data-mode-btn="encrypt" class="active">Encrypt</button>
+          <button data-mode-btn="decrypt">Decrypt</button>
+        </div>
+
+        <!-- Body Copy & Panels -->
+        <div class="body-copy">
+          <p class="headline" id="headline">Choose a file to protect it with a password only you know.</p>
+
+          <!-- Hidden File Input -->
+          <input type="file" id="fileInput" multiple>
+
+          <!-- PANEL: EMPTY (Dropzone) -->
+          <div data-panel="empty" class="on">
+            <div class="dropzone" id="dropzone">
+              <div class="dz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 16V4" />
+                  <path d="M7 9l5-5 5 5" />
+                  <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" />
+                </svg>
+              </div>
+              <div class="dz-title">Drop files here</div>
+              <div class="dz-sub">or <b>click to browse</b> — encrypt a batch in one pass</div>
+            </div>
+          </div>
+
+          <!-- PANEL: PASSWORD INPUT -->
+          <div data-panel="password">
+            <div class="file-card">
+              <div class="file-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                </svg>
+                <span class="file-ext" id="pwFileExtBadge">FILE</span>
+              </div>
+              <div class="file-meta">
+                <div class="file-name" id="pwFileNameText">filename.ext</div>
+                <div class="file-size" id="pwFileSizeText">0 KB</div>
+              </div>
+              <div class="file-actions">
+                <button class="icon-btn" id="pwRemoveFileBtn" title="Remove file">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="queue-panel" id="queuePanel" aria-live="polite">
+              <div class="queue-header"><span id="queueCount">1 file ready</span><button class="text-btn" id="addMoreFilesBtn" type="button">Add more</button></div>
+              <div class="queue-list" id="queueList"></div>
+            </div>
+
+            <div class="pw-section">
+              <div>
+                <label class="field-label">Password</label>
+                <div class="field-wrap">
+                  <input type="password" placeholder="Enter password" id="pwMain">
+                  <button class="field-toggle" data-eye="pwMain" type="button" aria-label="Show password" title="Show password">
+                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="strength" id="strengthMeter">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+                <div class="strength-label"><span>Password strength</span><span class="val" id="strengthVal">--</span>
+                </div>
+              </div>
+
+              <div id="confirmField">
+                <label class="field-label">Confirm password</label>
+                <div class="field-wrap">
+                  <input type="password" placeholder="Re-enter password" id="pwConfirm">
+                  <span class="match-check" id="matchCheck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span>
+                  <button class="field-toggle confirm-toggle" data-eye="pwConfirm" type="button" aria-label="Show password confirmation" title="Show password confirmation"><svg class="eye-icon"
+                      viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    </svg></button>
+                </div>
+              </div>
+
+              <div class="hint-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4.5" y="10.5" width="15" height="10" rx="2.2" />
+                  <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+                </svg>
+                <span>This password can't be recovered. If you forget it, the file cannot be decrypted. Store it
+                  safely.</span>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="primaryFromPassword" disabled><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg><span>Encrypt file</span></button>
+          </div>
+
+          <!-- PANEL: PROGRESS -->
+          <div data-panel="progress">
+            <div class="file-card mini dim">
+              <div class="file-icon">
+                <div class="spin-ring"></div>
+              </div>
+              <div class="file-meta">
+                <div class="file-name" id="progFileNameText">filename.ext</div>
+                <div class="file-size" id="progressCaptionSmall">Encrypting with AES-256-GCM</div>
+              </div>
+            </div>
+
+            <div class="progress-block">
+              <div class="progress-status">
+                <span class="label" id="progressLabel">Encrypting file…</span>
+                <span class="pct" id="progressPct">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <p class="progress-caption">Your file never leaves this device.</p>
+            </div>
+
+            <button class="cancel-link" id="cancelProcessBtn">Cancel</button>
+          </div>
+
+          <!-- PANEL: SUCCESS -->
+          <div data-panel="success">
+            <div class="result">
+              <div class="result-badge success">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="result-title" id="successTitle">File encrypted</div>
+              <div class="result-sub" id="successSub">Saved as <b>filename.ext.cipher</b></div>
+              <div class="meta-row" id="successMetaRow">
+                <span class="meta-pill">AES-256-GCM</span>
+                <span class="meta-pill" id="successMetaSize">0 KB</span>
+                <span class="meta-pill" id="successMetaTime">0.0s</span>
+              </div>
+              <div class="result-actions">
+                <button class="btn-primary" id="successDownloadBtn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg><span>Download File</span></button>
+                <button class="btn-primary batch-download-btn" id="successDownloadAllBtn" hidden><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg><span>Download all files</span></button>
+                <button class="btn-ghost" id="successGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v6h6" /></svg><span>Encrypt another file</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL: ERROR -->
+          <div data-panel="error">
+            <div class="file-card dim">
+              <div class="file-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                </svg>
+                <span class="file-ext" id="errorExt">FILE</span>
+              </div>
+              <div class="file-meta">
+                <div class="file-name" id="errorFileName">filename.ext</div>
+                <div class="file-size" id="errorFileSize">0 KB</div>
+              </div>
+            </div>
+
+            <div class="pw-section">
+              <div>
+                <label class="field-label">Password</label>
+                <div class="field-wrap error">
+                  <input type="password" id="pwError" placeholder="Enter password">
+                  <button class="field-toggle" data-eye="pwError" type="button" aria-label="Show password" title="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    </svg></button>
+                </div>
+                <div class="error-msg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v5" />
+                    <path d="M12 16h.01" />
+                  </svg>
+                  <span id="errorMsg">Incorrect password — authentication failed.</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="errorPrimary"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v6h6" /></svg><span>Try again</span></button>
+            <button class="btn-ghost" id="errorGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" /><path d="m9 9 6 6m0-6-6 6" /></svg><span>Choose a different file</span></button>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="window-footer">
+          <div class="footer-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4.5" y="10.5" width="15" height="10" rx="2.2" />
+              <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+            </svg>
+            AES-256-GCM + PBKDF2
+          </div>
+          <a class="footer-link" href="#" id="howItWorksLink">How it works</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Designed for Maximum Privacy</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">Cipher leverages standard Web Crypto API primitives so you can secure files without
+          trusting third-party cloud servers.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card feature-card-shield">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">AES-256-GCM Encryption</h3>
+          <p class="feature-desc">Galois/Counter Mode (GCM) provides authenticated encryption, guaranteeing both
+            high-speed encryption and data integrity checks.</p>
+        </div>
+
+        <div class="feature-card feature-card-key">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+            </svg>
+          </div>
+          <h3 class="feature-title">PBKDF2 Key Derivation</h3>
+          <p class="feature-desc">Derives a cryptographic key from your password using SHA-256 with 250,000 iterations
+            and a 16-byte random salt to prevent brute-force attacks.</p>
+        </div>
+
+        <div class="feature-card feature-card-monitor">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <h3 class="feature-title">100% Client-Side Executable</h3>
+          <p class="feature-desc">All binary processing takes place in your browser memory. Your files, passwords, and
+            decrypted outputs never cross a network interface.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Specs Section -->
+  <section id="security" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Cryptographic Container Spec</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">Cipher packs your encrypted data into a structured binary container format (`.cipher`).
+        </p>
+      </div>
+
+      <div class="spec-list">
+        <div class="spec-box">
+          <div class="spec-label">MAGIC HEADER (4 BYTES)</div>
+          <div class="spec-value">ASCII "CPHR" (0x43 0x50 0x48 0x52)</div>
+          <div class="spec-detail">Validates container format and prevents processing incompatible files.</div>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-label">VERSION & RANDOM SALT (17 BYTES)</div>
+          <div class="spec-value">1-byte Version (0x01) + 16-byte Random Salt</div>
+          <div class="spec-detail">Salt generated via crypto.getRandomValues() for PBKDF2 key derivation.</div>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-label">INITIALIZATION VECTOR (12 BYTES)</div>
+          <div class="spec-value">96-bit Cryptographically Random IV</div>
+          <div class="spec-detail">Ensures unique AES-GCM ciphertext generation per encryption pass.</div>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-label">METADATA & PAYLOAD</div>
+          <div class="spec-value">2-byte Big-Endian Length + Original UTF-8 Filename + AES-256-GCM Ciphertext</div>
+          <div class="spec-detail">Preserves exact original filename for seamless restoration upon decryption.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section faq-section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Clear answers, private by design</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">Everything you need to know before protecting your first file with Cipher.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Do my files ever leave my device?</summary>
+          <div class="faq-answer"><p>No. Cipher performs encryption and decryption in your browser with the Web Crypto API. Files and passwords are not uploaded to a server.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I forget my password?</summary>
+          <div class="faq-answer"><p>There is no password recovery path. Cipher is designed so only the password holder can unlock a file, so keep it in a trusted password manager.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Which files can I encrypt?</summary>
+          <div class="faq-answer"><p>Any file type can be selected, including documents, images, archives, and media. The original filename is preserved inside the encrypted container.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Which cryptography does Cipher use?</summary>
+          <div class="faq-answer"><p>Cipher derives a key with PBKDF2 and SHA-256, then protects the file with authenticated AES-256-GCM encryption using fresh random salt and IV values.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Modal -->
+  <div class="modal-overlay" id="howItWorksModal">
+    <div class="modal-card">
+      <h3>How Cipher Encryption Works</h3>
+      <p>Cipher is a 100% client-side file encryption tool that runs directly in your browser using standard Web Crypto
+        API primitives.</p>
+      <ul>
+        <li><b>Key Derivation:</b> PBKDF2 with SHA-256 algorithm and 250,000 iterations.</li>
+        <li><b>Cipher:</b> AES-256-GCM authenticated encryption ensuring confidentiality and data integrity.</li>
+        <li><b>Zero Server Uploads:</b> Your files and passwords never leave your computer.</li>
+        <li><b>Binary Container:</b> Encrypted files output as `.cipher` files with preserved metadata.</li>
+      </ul>
+      <button class="btn-primary" id="closeModalBtn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg><span>Got it</span></button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; font-weight: 600;">
+        <a href="/about/" style="color: var(--text-2);">About Us</a>
+        <a href="/privacy/" style="color: var(--text-2);">Privacy Policy</a>
+        <a href="/contact/" style="color: var(--text-2);">Contact Us</a>
+        <a href="/terms/" style="color: var(--text-2);">Terms of Service</a>
+      </div>
+      <p>&copy; Cipher - Free Online Security &amp; File Tools. Secure, client-side encryption powered by Web Crypto API.</p>
+    </div>
+  </footer>
+
+  <div class="sr-only" id="progressAnnouncer" aria-live="polite" aria-atomic="true"></div>
+  <script src="/js/translations.js"></script>
+  <script src="/js/common.js"></script>
+
+  <script>
+    // Application State
+    let mode = 'encrypt';
+    let currentPanel = 'empty';
+    let selectedFile = null;
+    let selectedFiles = [];
+    let batchResults = [];
+    let resultBlob = null;
+    let resultDownloadName = '';
+    let isCancelled = false;
+    // DOM Elements
+    const panels = document.querySelectorAll('[data-panel]');
+    const headline = document.getElementById('headline');
+    const segmented = document.getElementById('segmented');
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+
+    const pwMain = document.getElementById('pwMain');
+    const pwConfirm = document.getElementById('pwConfirm');
+    const pwError = document.getElementById('pwError');
+    const matchCheck = document.getElementById('matchCheck');
+
+    const primaryFromPassword = document.getElementById('primaryFromPassword');
+    const successDownloadBtn = document.getElementById('successDownloadBtn');
+    const successDownloadAllBtn = document.getElementById('successDownloadAllBtn');
+    const successGhost = document.getElementById('successGhost');
+    const errorPrimary = document.getElementById('errorPrimary');
+    const errorGhost = document.getElementById('errorGhost');
+    const cancelProcessBtn = document.getElementById('cancelProcessBtn');
+
+    const modal = document.getElementById('howItWorksModal');
+    const howItWorksLink = document.getElementById('howItWorksLink');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function setButtonLabel(button, label) {
+      const labelNode = button.querySelector('span');
+      if (labelNode) labelNode.textContent = label;
+      else button.textContent = label;
+    }
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const queuePanel = document.getElementById('queuePanel');
+    const queueList = document.getElementById('queueList');
+    const queueCount = document.getElementById('queueCount');
+    const addMoreFilesBtn = document.getElementById('addMoreFilesBtn');
+    const progressAnnouncer = document.getElementById('progressAnnouncer');
+
+    // Mode Copy Mapping
+    const copy = {
+      encrypt: {
+        empty: "Choose a file to protect it with a password only you know.",
+        password: "Choose a strong password — you'll need it to unlock this file later.",
+        progress: "Sit tight, this only takes a moment.",
+        success: "",
+        error: "Encryption interrupted or failed."
+      },
+      decrypt: {
+        empty: "Choose an encrypted .cipher file to unlock it.",
+        password: "Enter the password used to encrypt this file.",
+        progress: "Sit tight, this only takes a moment.",
+        success: "",
+        error: "That password doesn't unlock this file."
+      }
+    };
+
+    // Helper: Format Bytes
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    // Helper: Extract Extension
+    function getFileExt(filename) {
+      if (!filename) return 'FILE';
+      const parts = filename.split('.');
+      if (parts.length > 1) {
+        const ext = parts.pop().toUpperCase();
+        return ext.length <= 5 ? ext : 'FILE';
+      }
+      return 'FILE';
+    }
+
+    // Mode Switcher
+    function applyModeCopy() {
+      setButtonLabel(primaryFromPassword, mode === 'encrypt' ? 'Encrypt file' : 'Decrypt file');
+      document.getElementById('progressLabel').textContent = mode === 'encrypt' ? 'Encrypting file…' : 'Decrypting file…';
+      document.getElementById('progressCaptionSmall').textContent = mode === 'encrypt' ? 'Encrypting with AES-256-GCM' : 'Verifying & decrypting with AES-256-GCM';
+      document.getElementById('confirmField').style.display = mode === 'encrypt' ? 'block' : 'none';
+
+      if (mode === 'encrypt') {
+        document.getElementById('successTitle').textContent = 'File encrypted';
+        setButtonLabel(successGhost, 'Encrypt another file');
+      } else {
+        document.getElementById('successTitle').textContent = 'File decrypted';
+        setButtonLabel(successGhost, 'Decrypt another file');
+      }
+      validateForm();
+    }
+
+    document.querySelectorAll('[data-mode-btn]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetMode = btn.dataset.modeBtn;
+        if (mode !== targetMode) {
+          mode = targetMode;
+          segmented.dataset.mode = mode;
+          document.querySelectorAll('[data-mode-btn]').forEach(b => b.classList.toggle('active', b === btn));
+          applyModeCopy();
+          resetFileSelection();
+        }
+      });
+    });
+
+    // Panel Navigation
+    function goTo(state) {
+      currentPanel = state;
+      panels.forEach(p => p.classList.toggle('on', p.dataset.panel === state));
+      headline.textContent = copy[mode][state] || '';
+      headline.style.display = (state === 'success') ? 'none' : 'block';
+    }
+
+    // Password Strength Calculation
+    function checkPasswordStrength(pw) {
+      let score = 0;
+      if (!pw) return { score: 0, text: '--' };
+      if (pw.length >= 8) score++;
+      if (pw.length >= 12) score++;
+      if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
+      if (/[0-9]/.test(pw) && /[^A-Za-z0-9]/.test(pw)) score++;
+
+      const labels = ['Weak', 'Fair', 'Good', 'Strong'];
+      return { score, text: labels[Math.max(0, score - 1)] || 'Weak' };
+    }
+
+    function updateStrengthMeter(pw) {
+      const { score, text } = checkPasswordStrength(pw);
+      const bars = document.querySelectorAll('#strengthMeter i');
+      const colors = ['var(--error)', '#ffc107', '#17a2b8', 'var(--primary)'];
+
+      bars.forEach((bar, index) => {
+        if (index < score) {
+          bar.style.background = colors[score - 1] || 'var(--primary)';
+        } else {
+          bar.style.background = 'var(--border)';
+        }
+      });
+
+      document.getElementById('strengthVal').textContent = pw ? text : '--';
+    }
+
+    // Form Validation
+    function validateForm() {
+      const pw = pwMain.value;
+      const confirm = pwConfirm.value;
+
+      updateStrengthMeter(pw);
+
+      if (mode === 'encrypt') {
+        if (pw && confirm && pw === confirm) {
+          matchCheck.classList.add('show');
+          primaryFromPassword.disabled = false;
+        } else {
+          matchCheck.classList.remove('show');
+          primaryFromPassword.disabled = true;
+        }
+      } else {
+        primaryFromPassword.disabled = !pw;
+      }
+    }
+
+    pwMain.addEventListener('input', validateForm);
+    pwConfirm.addEventListener('input', validateForm);
+
+    // File Selection Logic
+    function updateFileInfo(file) {
+      selectedFile = file;
+      const sizeStr = formatBytes(file.size);
+      const ext = getFileExt(file.name);
+
+      document.getElementById('pwFileNameText').textContent = file.name;
+      document.getElementById('pwFileNameText').title = file.name;
+      document.getElementById('pwFileSizeText').textContent = sizeStr;
+      document.getElementById('pwFileExtBadge').textContent = ext;
+
+      document.getElementById('progFileNameText').textContent = file.name;
+      document.getElementById('progFileNameText').title = file.name;
+
+      document.getElementById('errorFileName').textContent = file.name;
+      document.getElementById('errorFileName').title = file.name;
+      document.getElementById('errorFileSize').textContent = sizeStr;
+      document.getElementById('errorExt').textContent = ext;
+
+      goTo('password');
+    }
+
+    function renderQueue() {
+      queuePanel.hidden = selectedFiles.length === 0;
+      queueCount.textContent = `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'} ready`;
+      queueList.innerHTML = selectedFiles.map((file, index) => `
+        <div class="queue-item" data-queue-index="${index}">
+          <span class="queue-item-name" title="${escapeHtml(file.name)}">${escapeHtml(file.name)}</span>
+          <span class="queue-item-meta" title="${formatBytes(file.size)}${file.type ? ' · ' + escapeHtml(file.type) : ''}">${formatBytes(file.size)}${file.type ? ' · ' + escapeHtml(file.type) : ''}</span>
+          <button class="icon-btn queue-remove" type="button" data-remove-index="${index}" title="Remove file" aria-label="Remove ${escapeHtml(file.name)}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
+        </div>`).join('');
+      queueList.querySelectorAll('[data-remove-index]').forEach(button => {
+        button.addEventListener('click', () => {
+          selectedFiles.splice(Number(button.dataset.removeIndex), 1);
+          selectedFile = selectedFiles[0] || null;
+          if (selectedFile) updateFileInfo(selectedFile);
+          else resetFileSelection();
+          renderQueue();
+        });
+      });
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+    }
+
+    function addFiles(files) {
+      const additions = Array.from(files);
+      const existing = new Set(selectedFiles.map(file => `${file.name}:${file.size}:${file.lastModified}`));
+      additions.forEach(file => {
+        const key = `${file.name}:${file.size}:${file.lastModified}`;
+        if (!existing.has(key)) selectedFiles.push(file);
+      });
+      selectedFile = selectedFiles[0] || null;
+      if (selectedFile) updateFileInfo(selectedFile);
+      renderQueue();
+      fileInput.value = '';
+    }
+
+    function resetFileSelection() {
+      selectedFile = null;
+      selectedFiles = [];
+      batchResults = [];
+      fileInput.value = '';
+      pwMain.value = '';
+      pwConfirm.value = '';
+      pwError.value = '';
+      resultBlob = null;
+      resultDownloadName = '';
+      queueList.innerHTML = '';
+      queuePanel.hidden = true;
+      validateForm();
+      goTo('empty');
+    }
+
+    dropzone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length) addFiles(e.target.files);
+    });
+
+    ['dragenter', 'dragover'].forEach(evt => {
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.add('drag');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(evt => {
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('drag');
+      });
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
+    });
+
+    document.getElementById('pwRemoveFileBtn').addEventListener('click', resetFileSelection);
+    addMoreFilesBtn.addEventListener('click', () => fileInput.click());
+
+    // Eye Toggle
+    document.querySelectorAll('[data-eye]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.eye);
+        const isVisible = input.type === 'text';
+        input.type = isVisible ? 'password' : 'text';
+        btn.setAttribute('aria-pressed', String(!isVisible));
+        const label = isVisible ? 'Show password' : 'Hide password';
+        btn.setAttribute('aria-label', btn.dataset.eye === 'pwConfirm' ? `${label} confirmation` : label);
+        btn.setAttribute('title', btn.getAttribute('aria-label'));
+      });
+    });
+
+    // Modal Control
+    howItWorksLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+    });
+    closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const summary = item.querySelector('summary');
+      const answer = item.querySelector('.faq-answer');
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+        const shouldOpen = !item.open;
+
+        if (shouldOpen) {
+          item.open = true;
+          requestAnimationFrame(() => item.classList.remove('is-closing'));
+          return;
+        }
+
+        item.classList.add('is-closing');
+        window.setTimeout(() => {
+          item.open = false;
+          item.classList.remove('is-closing');
+        }, 280);
+      });
+
+      answer.addEventListener('transitionend', () => {
+        if (item.open && !item.classList.contains('is-closing')) {
+          answer.style.maxHeight = `${answer.scrollHeight}px`;
+        }
+      });
+    });
+
+    function updateProgress(pct, caption) {
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressPct').textContent = Math.round(pct) + '%';
+      if (caption) {
+        const captionElement = document.getElementById('progressCaptionSmall');
+        captionElement.textContent = caption;
+        captionElement.title = caption;
+        progressAnnouncer.textContent = caption;
+      }
+    }
+
+    function updateConnectionStatus() {
+      const status = document.getElementById('localStatus');
+      const label = document.getElementById('localStatusText');
+      const isOnline = navigator.onLine;
+      label.textContent = isOnline ? 'Online' : 'Offline';
+      status.classList.toggle('offline', !isOnline);
+      status.classList.remove('checking');
+    }
+
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', () => {
+      updateConnectionStatus();
+    });
+    updateConnectionStatus();
+
+    // Web Crypto API Key Derivation
+    async function deriveKey(password, salt) {
+      const enc = new TextEncoder();
+      const pwKey = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(password),
+        { name: "PBKDF2" },
+        false,
+        ["deriveKey"]
+      );
+
+      return await crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt: salt,
+          iterations: 250000,
+          hash: "SHA-256"
+        },
+        pwKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+      );
+    }
+
+    async function processEncrypt(file, password) {
+      isCancelled = false;
+      goTo('progress');
+      updateProgress(10, 'Reading file…');
+
+      const startTime = performance.now();
+      const arrayBuffer = await file.arrayBuffer();
+
+      if (isCancelled) return;
+      updateProgress(30, 'Deriving key (250,000 SHA-256 PBKDF2 iterations)…');
+
+      const enc = new TextEncoder();
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+
+      const key = await deriveKey(password, salt);
+
+      if (isCancelled) return;
+      updateProgress(65, 'Encrypting data with AES-256-GCM…');
+
+      const ciphertext = await crypto.subtle.encrypt(
+        { name: "AES-GCM", iv: iv },
+        key,
+        arrayBuffer
+      );
+
+      if (isCancelled) return;
+      updateProgress(90, 'Packaging .cipher container…');
+
+      const filenameBytes = enc.encode(file.name);
+      if (filenameBytes.length > 0xffff) {
+        throw new Error('The filename is too long to store in a .cipher container.');
+      }
+      const headerLen = 4 + 1 + 16 + 12 + 2 + filenameBytes.length;
+      const totalLen = headerLen + ciphertext.byteLength;
+
+      const outBuffer = new Uint8Array(totalLen);
+
+      // Header CPHR
+      outBuffer.set([0x43, 0x50, 0x48, 0x52], 0);
+      // Version 1
+      outBuffer[4] = 1;
+      // Salt (16B)
+      outBuffer.set(salt, 5);
+      // IV (12B)
+      outBuffer.set(iv, 21);
+      // Filename length
+      const view = new DataView(outBuffer.buffer);
+      view.setUint16(33, filenameBytes.length, false);
+      // Filename bytes
+      outBuffer.set(filenameBytes, 35);
+      // Payload
+      outBuffer.set(new Uint8Array(ciphertext), headerLen);
+
+      const endTime = performance.now();
+      const elapsedSec = ((endTime - startTime) / 1000).toFixed(1) + 's';
+
+      resultBlob = new Blob([outBuffer], { type: 'application/octet-stream' });
+      resultDownloadName = file.name + '.cipher';
+
+      updateProgress(100, 'Complete!');
+
+      setTimeout(() => {
+        document.getElementById('successTitle').textContent = 'File encrypted';
+        document.getElementById('successSub').textContent = `Saved as ${resultDownloadName}`;
+        document.getElementById('successSub').title = resultDownloadName;
+        document.getElementById('successMetaSize').textContent = formatBytes(resultBlob.size);
+        document.getElementById('successMetaTime').textContent = elapsedSec;
+        setButtonLabel(successGhost, 'Encrypt another file');
+        goTo('success');
+      }, 300);
+    }
+
+    async function processDecrypt(file, password) {
+      isCancelled = false;
+      goTo('progress');
+      updateProgress(10, 'Reading encrypted container…');
+
+      const startTime = performance.now();
+      const buffer = await file.arrayBuffer();
+      const dec = new TextDecoder();
+
+      if (buffer.byteLength < 35) {
+        showError("Corrupted file format — container is incomplete.");
+        return;
+      }
+
+      const uint8 = new Uint8Array(buffer);
+      const magic = dec.decode(uint8.slice(0, 4));
+
+      if (magic !== 'CPHR') {
+        showError("Invalid cipher file — missing 'CPHR' header signature.");
+        return;
+      }
+
+      const version = uint8[4];
+      if (version !== 1) {
+        showError(`Unsupported container version (${version}).`);
+        return;
+      }
+
+      const salt = uint8.slice(5, 21);
+      const iv = uint8.slice(21, 33);
+      const view = new DataView(buffer);
+      const fnLen = view.getUint16(33, false);
+
+      if (buffer.byteLength < 35 + fnLen) {
+        showError("Corrupted header — invalid filename length.");
+        return;
+      }
+
+      const origFilename = dec.decode(uint8.slice(35, 35 + fnLen));
+      const ciphertext = uint8.slice(35 + fnLen);
+
+      if (isCancelled) return;
+      updateProgress(40, 'Deriving decryption key…');
+
+      try {
+        const key = await deriveKey(password, salt);
+
+        if (isCancelled) return;
+        updateProgress(75, 'Authenticating & decrypting payload…');
+
+        const decrypted = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: iv },
+          key,
+          ciphertext
+        );
+
+        const endTime = performance.now();
+        const elapsedSec = ((endTime - startTime) / 1000).toFixed(1) + 's';
+
+        resultBlob = new Blob([decrypted], { type: 'application/octet-stream' });
+        resultDownloadName = origFilename || 'decrypted_file';
+
+        updateProgress(100, 'Complete!');
+
+        setTimeout(() => {
+          document.getElementById('successTitle').textContent = 'File decrypted';
+          document.getElementById('successSub').textContent = `Restored as ${resultDownloadName}`;
+          document.getElementById('successSub').title = resultDownloadName;
+          document.getElementById('successMetaSize').textContent = formatBytes(resultBlob.size);
+          document.getElementById('successMetaTime').textContent = elapsedSec;
+          setButtonLabel(successGhost, 'Decrypt another file');
+          goTo('success');
+        }, 300);
+
+      } catch (err) {
+        showError("Incorrect password — authentication tag validation failed.");
+      }
+    }
+
+    function showError(message) {
+      document.getElementById('errorMsg').textContent = message;
+      pwError.value = pwMain.value;
+      goTo('error');
+    }
+
+    async function encryptToBlob(file, password, index, total) {
+      updateProgress((index / total) * 100, `Reading ${file.name}…`);
+      const startTime = performance.now();
+      const arrayBuffer = await file.arrayBuffer();
+      if (isCancelled) return null;
+      updateProgress(((index + 0.3) / total) * 100, `Deriving key for ${file.name}…`);
+      const enc = new TextEncoder();
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const key = await deriveKey(password, salt);
+      if (isCancelled) return null;
+      updateProgress(((index + 0.65) / total) * 100, `Encrypting ${file.name}…`);
+      const ciphertext = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, arrayBuffer);
+      if (isCancelled) return null;
+      updateProgress(((index + 0.9) / total) * 100, `Packaging ${file.name}…`);
+      const filenameBytes = enc.encode(file.name);
+      if (filenameBytes.length > 0xffff) {
+        throw new Error('The filename is too long to store in a .cipher container.');
+      }
+      const headerLen = 4 + 1 + 16 + 12 + 2 + filenameBytes.length;
+      const outBuffer = new Uint8Array(headerLen + ciphertext.byteLength);
+      outBuffer.set([0x43, 0x50, 0x48, 0x52], 0);
+      outBuffer[4] = 1;
+      outBuffer.set(salt, 5);
+      outBuffer.set(iv, 21);
+      new DataView(outBuffer.buffer).setUint16(33, filenameBytes.length, false);
+      outBuffer.set(filenameBytes, 35);
+      outBuffer.set(new Uint8Array(ciphertext), headerLen);
+      return { blob: new Blob([outBuffer], { type: 'application/octet-stream' }), name: `${file.name}.cipher`, elapsed: ((performance.now() - startTime) / 1000).toFixed(1) + 's' };
+    }
+
+    async function decryptToBlob(file, password, index, total) {
+      updateProgress((index / total) * 100, `Reading ${file.name}…`);
+      const buffer = await file.arrayBuffer();
+      const uint8 = new Uint8Array(buffer);
+      if (buffer.byteLength < 35) throw new Error('Corrupted file format — container is incomplete.');
+      if (new TextDecoder().decode(uint8.slice(0, 4)) !== 'CPHR') throw new Error("Invalid cipher file — missing 'CPHR' header signature.");
+      if (uint8[4] !== 1) throw new Error(`Unsupported container version (${uint8[4]}).`);
+      const fnLen = new DataView(buffer).getUint16(33, false);
+      if (buffer.byteLength < 35 + fnLen) throw new Error('Corrupted header — invalid filename length.');
+      const salt = uint8.slice(5, 21);
+      const iv = uint8.slice(21, 33);
+      const filename = new TextDecoder().decode(uint8.slice(35, 35 + fnLen)) || 'decrypted_file';
+      updateProgress(((index + 0.4) / total) * 100, `Deriving key for ${file.name}…`);
+      const key = await deriveKey(password, salt);
+      if (isCancelled) return null;
+      updateProgress(((index + 0.75) / total) * 100, `Authenticating ${file.name}…`);
+      const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, uint8.slice(35 + fnLen));
+      return { blob: new Blob([decrypted], { type: 'application/octet-stream' }), name: filename, elapsed: 'done' };
+    }
+
+    async function processBatch(password) {
+      isCancelled = false;
+      batchResults = [];
+      goTo('progress');
+      for (let index = 0; index < selectedFiles.length; index++) {
+        if (isCancelled) return;
+        try {
+          const result = mode === 'encrypt'
+            ? await encryptToBlob(selectedFiles[index], password, index, selectedFiles.length)
+            : await decryptToBlob(selectedFiles[index], password, index, selectedFiles.length);
+          if (!result) return;
+          batchResults.push(result);
+        } catch (error) {
+          showError(error.message || 'The selected file could not be processed.');
+          return;
+        }
+      }
+      resultBlob = batchResults[0].blob;
+      resultDownloadName = batchResults[0].name;
+      updateProgress(100, 'Batch complete.');
+      document.getElementById('successTitle').textContent = `${batchResults.length} file${batchResults.length === 1 ? '' : 's'} ${mode === 'encrypt' ? 'encrypted' : 'decrypted'}`;
+      document.getElementById('successSub').textContent = batchResults.length === 1 ? `Saved as ${batchResults[0].name}` : 'Your files are ready to download.';
+      document.getElementById('successSub').title = batchResults.length === 1 ? batchResults[0].name : '';
+      document.getElementById('successMetaSize').textContent = formatBytes(batchResults.reduce((sum, result) => sum + result.blob.size, 0));
+      document.getElementById('successMetaTime').textContent = `${batchResults.length} item${batchResults.length === 1 ? '' : 's'}`;
+      setButtonLabel(successDownloadBtn, batchResults.length === 1 ? 'Download file' : 'Download first file');
+      successDownloadBtn.hidden = false;
+      successDownloadAllBtn.hidden = batchResults.length < 2;
+      goTo('success');
+
+    }
+
+    primaryFromPassword.addEventListener('click', () => {
+      const pw = pwMain.value;
+      if (!selectedFiles.length || !pw) return;
+      processBatch(pw);
+    });
+
+    cancelProcessBtn.addEventListener('click', () => {
+      isCancelled = true;
+      goTo('password');
+    });
+
+    successDownloadBtn.addEventListener('click', () => {
+      if (!resultBlob || !resultDownloadName) return;
+      const url = URL.createObjectURL(resultBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = resultDownloadName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    successDownloadAllBtn.addEventListener('click', () => {
+      batchResults.forEach((result, index) => {
+        setTimeout(() => downloadResult(result.blob, result.name), index * 180);
+      });
+    });
+
+    function downloadResult(blob, name) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    successGhost.addEventListener('click', resetFileSelection);
+    errorGhost.addEventListener('click', resetFileSelection);
+    errorPrimary.addEventListener('click', () => {
+      if (pwError.value) {
+        pwMain.value = pwError.value;
+      }
+      goTo('password');
+    });
+
+    applyModeCopy();
+    goTo('empty');
+  </script>
+</body>
+
+</html>

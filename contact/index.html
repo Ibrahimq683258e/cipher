@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us – Cipher Security & File Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#111317">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Get in touch with the Cipher engineering team for inquiries, security feedback, and feature requests.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us – Cipher">
+  <meta property="og:description" content="Contact Cipher for inquiries and support.">
+  <meta property="og:image" content="/images/Cipher.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-sans);
+      padding: 12px 14px;
+      font-size: 14px;
+      border-radius: var(--radius-control);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--surface-3);
+    }
+
+    .contact-status {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: var(--radius-control);
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid transparent;
+      transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-status.is-success {
+      display: block;
+      color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.18);
+    }
+
+    .contact-status.is-warning {
+      display: block;
+      color: #d97706;
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.18);
+    }
+
+    .contact-status.is-error {
+      display: block;
+      color: var(--error);
+      background: rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.18);
+    }
+
+    .contact-status.is-loading {
+      display: block;
+      color: var(--text-2);
+      background: var(--surface-2);
+      border-color: var(--border);
+    }
+
+    #btnSubmitContact:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      filter: saturate(0.8);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="nav-brand">
+        <span class="nav-brand-media" aria-hidden="true">
+          <img src="/images/Cipher.png" alt="Cipher Logo">
+        </span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-toggle-label">Menu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#security-tools">Security Tools</a></li>
+        <li><a href="/#file-tools">File Tools</a></li>
+        <li><button class="theme-toggle-btn" title="Toggle Theme" type="button"></button></li>
+        <li>
+          <a href="/tools/encrypt/" class="btn-nav">
+            Protect File
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Top Ad Slot Placeholder -->
+  <div class="container" style="margin-top: 80px;">
+  </div>
+
+  <main class="section">
+    <div class="container" style="max-width: 700px;">
+      <div class="section-header">
+        <h1 class="section-title">Contact Us</h1>
+        <div class="section-divider"></div>
+        <p class="section-sub">Have questions, feedback, or security reports? Send us a message.</p>
+      </div>
+
+      <div class="feature-card" style="padding: 36px;">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label class="field-label">Your Name</label>
+            <input type="text" class="form-control" id="contactName" placeholder="John Doe" maxlength="120" required>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Your Email</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="john@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Message</label>
+            <textarea class="form-control" id="contactMessage" style="height: 120px;" maxlength="5000" placeholder="Type your message here..." required></textarea>
+          </div>
+
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAE695HIPb-6T9Vs6" data-theme="auto" data-callback="onContactTurnstileSuccess" data-expired-callback="onContactTurnstileExpired" data-error-callback="onContactTurnstileError"></div>
+          <button class="btn-primary" type="submit" id="btnSubmitContact">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m22 2-7 20-4-9-9-4Z" />
+              <path d="M22 2 11 13" />
+            </svg>
+            <span>Send Message</span>
+          </button>
+        </form>
+        <div id="contactStatus" class="contact-status" role="status" aria-live="polite"></div>
+      </div>
+
+      <!-- Content Ad Slot Placeholder -->
+    </div>
+  </main>
+
+  <!-- Footer Ad Slot Placeholder -->
+  <div class="container">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; font-weight: 600;">
+        <a href="/about/" style="color: var(--text-2);">About Us</a>
+        <a href="/privacy/" style="color: var(--text-2);">Privacy Policy</a>
+        <a href="/contact/" style="color: var(--text-2);">Contact Us</a>
+        <a href="/terms/" style="color: var(--text-2);">Terms of Service</a>
+      </div>
+      <p>&copy; Cipher – Free Online Security & File Tools. 100% Client-Side Executable.</p>
+    </div>
+  </footer>
+
+  <script src="/js/translations.js"></script>
+  <script src="/js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzUtmqFybVmsx7sFXTr6NrOseus0H9ZFTMb3TCEag4BeLmKOa17ioytYCayiy80fCTqNg/exec';
+      const contactForm = document.getElementById('contactForm');
+      const contactStatus = document.getElementById('contactStatus');
+      const submitButton = document.getElementById('btnSubmitContact');
+      const submitButtonLabel = submitButton.querySelector('span');
+
+      let turnstileToken = '';
+      let statusTimer = null;
+      let isSubmitting = false;
+
+      function setStatus(message, tone = 'success') {
+        contactStatus.textContent = message;
+        contactStatus.className = `contact-status is-${tone}`;
+        contactStatus.setAttribute('aria-live', 'polite');
+
+        if (statusTimer) {
+          window.clearTimeout(statusTimer);
+        }
+
+        if (tone === 'success') {
+          statusTimer = window.setTimeout(() => {
+            clearStatus();
+          }, 4000);
+        }
+      }
+
+      function clearStatus() {
+        if (statusTimer) {
+          window.clearTimeout(statusTimer);
+          statusTimer = null;
+        }
+        contactStatus.textContent = '';
+        contactStatus.className = 'contact-status';
+      }
+
+      function updateNetworkState() {
+        const isOffline = !navigator.onLine;
+        submitButton.disabled = isOffline || isSubmitting;
+        submitButton.setAttribute('aria-disabled', String(submitButton.disabled));
+
+        if (isOffline) {
+          setStatus('You are offline. Please reconnect to the internet before sending your message.', 'warning');
+        } else if (contactStatus.classList.contains('is-warning') &&
+                   contactStatus.textContent.startsWith('You are offline.')) {
+          clearStatus();
+        }
+      }
+
+      window.onContactTurnstileSuccess = token => {
+        turnstileToken = token;
+        if (contactStatus.classList.contains('is-error') &&
+            contactStatus.textContent.includes('security check')) {
+          clearStatus();
+        }
+      };
+
+      window.onContactTurnstileExpired = () => {
+        turnstileToken = '';
+      };
+
+      window.onContactTurnstileError = () => {
+        turnstileToken = '';
+        setStatus('The security check could not load. Check your connection and try again.', 'error');
+      };
+
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!navigator.onLine) {
+          updateNetworkState();
+          return;
+        }
+
+        if (!contactForm.reportValidity()) return;
+
+        if (!CONTACT_ENDPOINT) {
+          setStatus('The contact service is not connected yet. Your message has not been sent.', 'warning');
+          return;
+        }
+
+        if (!turnstileToken) {
+          setStatus('Please complete the security check before sending.', 'error');
+          return;
+        }
+
+        submitContactMessage();
+      });
+
+      async function submitContactMessage() {
+        isSubmitting = true;
+        updateNetworkState();
+        clearStatus();
+        const originalButtonText = submitButtonLabel.textContent;
+        submitButtonLabel.textContent = 'Sending…';
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(() => controller.abort(), 20000);
+
+        try {
+          const response = await fetch(CONTACT_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body: JSON.stringify({
+              name: document.getElementById('contactName').value.trim(),
+              email: document.getElementById('contactEmail').value.trim(),
+              message: document.getElementById('contactMessage').value.trim(),
+              turnstileToken
+            }),
+            signal: controller.signal
+          });
+
+          const responseText = await response.text();
+          let result;
+          try {
+            result = JSON.parse(responseText);
+          } catch {
+            throw new Error('The contact service returned an unreadable response. Please try again later.');
+          }
+
+          if (!response.ok || !result || result.success !== true) {
+            throw new Error(result && result.message
+              ? result.message
+              : 'The message could not be sent. Please try again.');
+          }
+
+          setStatus(result.message || 'Your message was sent successfully.', 'success');
+          contactForm.reset();
+          turnstileToken = '';
+          if (window.turnstile) window.turnstile.reset();
+        } catch (error) {
+          const message = error.name === 'AbortError'
+            ? 'The request timed out. Check your connection and try again.'
+            : error instanceof TypeError
+              ? 'Could not reach the contact service. Check your connection and endpoint configuration, then try again.'
+              : error.message;
+          setStatus(message, 'error');
+        } finally {
+          window.clearTimeout(timeoutId);
+          turnstileToken = '';
+          if (window.turnstile) window.turnstile.reset();
+          isSubmitting = false;
+          submitButtonLabel.textContent = originalButtonText;
+          updateNetworkState();
+        }
+      }
+
+      window.addEventListener('online', updateNetworkState);
+      window.addEventListener('offline', updateNetworkState);
+      updateNetworkState();
+    });
+  </script>
+</body>
+
+</html>
