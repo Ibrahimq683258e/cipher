@@ -12,7 +12,7 @@ There is no backend, build process, or package installation required.
 
 ## Run Locally
 
-Because Cipher uses a service worker and an installable PWA manifest, run it from a local HTTP server instead of opening `index.html` directly with a `file://` URL.
+Run Cipher from a local HTTP server to use browser features such as the contact form's Turnstile verification.
 
 ### Python
 
@@ -52,7 +52,6 @@ To stop a terminal server, press `Ctrl+C` in the terminal running it.
 - **Client-Side QR Scanning**: Scan QR codes with your device camera and copy decoded results without uploading images or camera frames.
 - **Batch Encryption**: Select or drop multiple files, review their type and size, and encrypt them sequentially with one password.
 - **Batch Downloads**: Download the first result or download every generated `.cipher` file from the completed batch.
-- **Installable Offline PWA**: Cipher caches its app shell for offline use and exposes an install action in supported browsers.
 - **Output Naming**: Encrypted output files are generated as `filename.ext.cipher` and retain their original UTF-8 filename inside the header for seamless decryption.
 - **Search Engine Setup**: Static `robots.txt` and `sitemap.xml` files expose the homepage and seven core tools for search indexing. Each indexed page includes canonical, keyword, and Open Graph metadata.
 
@@ -88,19 +87,19 @@ To stop a terminal server, press `Ctrl+C` in the terminal running it.
 	- Multiple files can be selected or dropped together. Use **Add more** to extend the queue.
 5. Enter a password.
 6. Click **Encrypt file** / **Decrypt file** to process locally and download `filename.ext.cipher` or restored original files.
-7. In a supported browser, use **Install** in the app header to add Cipher to your desktop or home screen.
-
-Opening `index.html` directly may display the page, but service-worker registration, PWA installation, and the Turnstile-protected contact form require a supported origin such as `http://localhost` or HTTPS.
+Opening `index.html` directly may display the page, but the Turnstile-protected contact form requires a supported origin such as `http://localhost` or HTTPS.
 
 ## Privacy and Storage
 
 - Files, passwords, and encryption results stay in browser memory during processing.
-- No application backend receives the files or passwords.
-- The service worker caches only the static application shell; user files and results are never added to the cache.
-- The contact page loads Cloudflare Turnstile, and pages load Google Fonts, as external resources.
+- Cipher does not receive files or passwords for tool processing, but this does not mean every part of the site processes data locally.
+- The site host may receive technical request data. The contact page uses Cloudflare Turnstile and Google Apps Script; pages load Google Fonts.
+- The site includes a cookie choice interface for necessary storage, advertising, and analytics. First-party optional scripts can be loaded after consent with `window.CipherConsent.loadScript(url, "advertising")` or `window.CipherConsent.loadScript(url, "analytics")`; listen for `cipher:consentchange` to respond when choices change. Third-party scripts are not allowed in the page context; integrate them only through an appropriately isolated provider setup.
+- Never send file contents, passwords, encryption keys, tool inputs, or generated results to advertising or analytics services.
+- Ad and analytics provider scripts are not included in this repository. Add the selected provider names, policy links, and configuration details to the Privacy Policy before publishing those integrations.
 
 ## Deployment
 
-Cipher can be deployed as a static website to GitHub Pages, Netlify, Vercel, or any other host that serves static files over HTTPS. Keep the project structure unchanged so relative paths to `css/`, `images/`, `manifest.webmanifest`, and `sw.js` continue to resolve.
+Cipher can be deployed as a static website to GitHub Pages, Netlify, Vercel, or any other host that serves static files over HTTPS. Keep the project structure unchanged so relative paths to `css/` and `images/` continue to resolve.
 
 Before deployment, replace the `https://example.com` placeholder in `robots.txt`, `sitemap.xml`, and page metadata with the real production domain.

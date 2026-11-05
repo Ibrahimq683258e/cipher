@@ -8,21 +8,21 @@
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <!-- TODO: change example.com to the real production domain. -->
-  <link rel="canonical" href="https://example.com/">
+  <link rel="canonical" href="cipher-tools.app/">
   <meta name="description"
-    content="Cipher is a suite of free, fast, 100% client-side online security and file tools. Encrypt files, generate strong passwords, compute hashes, convert Base64, build QR codes, compress images, and merge PDFs directly in your browser.">
-  <meta name="keywords" content="free online security tools, private file tools, offline browser tools, client-side encryption, password generator, hash generator, QR code generator">
+    content="Cipher is a suite of free, fast browser-based security and file tools. Process files and text locally in your browser with encryption, password, hash, Base64, QR, image, and PDF tools.">
+  <meta name="keywords"
+    content="free online security tools, browser-based file tools, client-side encryption, password generator, hash generator, QR code generator">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cipher – Free Online Security & File Tools">
   <meta property="og:description"
-    content="Fast, secure, 100% client-side online security & file tools hub. Zero file uploads, zero server tracking.">
-  <meta property="og:url" content="https://example.com/">
+    content="Fast browser-based security and file tools. Files are processed locally; third-party services may handle site and advertising data.">
+  <meta property="og:url" content="https://cipher-tools.app/">
   <meta property="og:image" content="images/Cipher.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cipher – Free Online Security & File Tools">
   <meta name="twitter:description"
     content="Fast, secure, browser-based online tools for security and file manipulation.">
-  <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,7 +423,7 @@
       position: absolute;
       inset: 0 0 auto 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
     }
 
     .home-process-card::after {
@@ -437,7 +437,7 @@
       background: radial-gradient(circle, rgba(240, 95, 64, 0.28), rgba(240, 95, 64, 0));
     }
 
-    .home-process-card > * {
+    .home-process-card>* {
       position: relative;
       z-index: 1;
     }
@@ -474,14 +474,18 @@
     }
 
     @keyframes homeProcessFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0);
         box-shadow: 0 12px 24px -14px rgba(240, 95, 64, 0.8);
       }
+
       42% {
         transform: translateY(-3px) rotate(-2deg);
         box-shadow: 0 15px 26px -13px rgba(240, 95, 64, 0.68);
       }
+
       72% {
         transform: translateY(1px) rotate(1deg);
         box-shadow: 0 10px 20px -14px rgba(240, 95, 64, 0.72);
@@ -556,7 +560,7 @@
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .home-usecase > div {
+    .home-usecase>div {
       min-width: 0;
       flex: 1;
     }
@@ -576,7 +580,7 @@
       background: linear-gradient(180deg, rgba(240, 95, 64, 0.18), rgba(240, 95, 64, 0.1));
       color: var(--primary);
       border: 1px solid rgba(240, 95, 64, 0.18);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
       animation: homeUsecaseFloat 5s ease-in-out infinite;
       animation-delay: var(--home-motion-delay, 0s);
       transform-origin: center;
@@ -606,26 +610,35 @@
     }
 
     @keyframes homeUsecaseFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0);
       }
+
       38% {
         transform: translateY(-3px) rotate(-3deg);
       }
+
       70% {
         transform: translateY(1px) rotate(2deg);
       }
     }
 
     @keyframes homeUsecaseSignal {
-      0%, 72%, 100% {
+
+      0%,
+      72%,
+      100% {
         transform: scale(1) rotate(0);
         filter: drop-shadow(0 0 0 transparent);
       }
+
       80% {
         transform: scale(1.08) rotate(-4deg);
         filter: drop-shadow(0 0 5px var(--primary-line));
       }
+
       86% {
         transform: scale(1) rotate(2deg);
         filter: drop-shadow(0 0 0 transparent);
@@ -633,6 +646,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .home-process-number,
       .home-usecase-icon,
       .home-usecase-icon svg {
@@ -737,7 +751,7 @@
       overflow-wrap: anywhere;
     }
 
-    .home-faq-item:not([open]) > .home-faq-answer {
+    .home-faq-item:not([open])>.home-faq-answer {
       display: none;
     }
 
@@ -806,6 +820,7 @@
     }
 
     @media (max-width: 760px) {
+
       .home-process-section,
       .home-faq-section {
         padding: 56px 0;
@@ -913,7 +928,8 @@
       <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" role="presentation">
         <g class="hero-network-lines">
           <path d="M70 88 220 152 355 82 500 184 650 108 820 174 1010 92 1140 166" />
-          <path d="M70 88 118 300 265 244 355 82 430 330 500 184 600 286 650 108 760 342 820 174 930 292 1010 92 1080 326 1140 166" />
+          <path
+            d="M70 88 118 300 265 244 355 82 430 330 500 184 600 286 650 108 760 342 820 174 930 292 1010 92 1080 326 1140 166" />
           <path d="M118 300 430 330M265 244 600 286M600 286 930 292M760 342 1080 326" />
           <path d="M220 152 265 244M500 184 600 286M820 174 930 292M1010 92 1080 326" />
         </g>
@@ -938,19 +954,21 @@
     </div>
     <div class="container">
       <h1 class="masthead-title">Free Online Security & File Tools</h1>
-      <p class="masthead-subtitle">Fast, Secure, Works in your browser. Complete client-side utilities with zero file
-        uploads and zero server tracking.</p>
+      <p class="masthead-subtitle">Fast, secure tools that work in your browser. Your files are processed locally; some
+        website features and advertising may involve third-party services.</p>
       <div class="home-hero-actions">
         <a href="#tools-dashboard" class="hero-cta">
           Explore the tools
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"></path>
             <path d="m13 6 6 6-6 6"></path>
           </svg>
         </a>
         <a href="/tools/encrypt/" class="home-hero-secondary">
           Protect a file locally
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
             <path d="M12 3 5 6v5c0 4.8 3 8.6 7 10 4-1.4 7-5.2 7-10V6l-7-3Z"></path>
             <path d="m9 12 2 2 4-4"></path>
           </svg>
@@ -960,10 +978,14 @@
   </header>
 
   <div class="home-trust-strip" aria-label="Cipher platform highlights">
-    <div class="home-trust-item"><span class="home-trust-value">7</span><span class="home-trust-label">Browser tools</span></div>
-    <div class="home-trust-item"><span class="home-trust-value">0</span><span class="home-trust-label">File uploads</span></div>
-    <div class="home-trust-item"><span class="home-trust-value">100%</span><span class="home-trust-label">Client-side</span></div>
-    <div class="home-trust-item"><span class="home-trust-value">Offline</span><span class="home-trust-label">Ready when cached</span></div>
+    <div class="home-trust-item"><span class="home-trust-value">7</span><span class="home-trust-label">Browser
+        tools</span></div>
+    <div class="home-trust-item"><span class="home-trust-value">0</span><span class="home-trust-label">File
+        uploads</span></div>
+    <div class="home-trust-item"><span class="home-trust-value">100%</span><span class="home-trust-label">Local
+        processing</span></div>
+    <div class="home-trust-item"><span class="home-trust-value">No account</span><span
+        class="home-trust-label">Required</span></div>
   </div>
 
   <!-- Dashboard Section -->
@@ -1204,25 +1226,29 @@
   <section class="home-process-section" id="how-it-works">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Private by design. Simple by default.</h2>
+        <h2 class="section-title">Local processing. Simple by default.</h2>
         <div class="section-divider"></div>
-        <p class="section-sub">Every tool follows the same quiet workflow: choose a task, work locally, and keep the result under your control.</p>
+        <p class="section-sub">Every tool follows the same quiet workflow: choose a task, work locally, and keep the
+          result under your control.</p>
       </div>
       <div class="home-process-grid">
         <article class="home-process-card">
           <div class="home-process-number">01</div>
           <h3>Choose a focused tool</h3>
-          <p>Search the toolkit by task or category, then open the exact utility you need without navigating through a maze of settings.</p>
+          <p>Search the toolkit by task or category, then open the exact utility you need without navigating through a
+            maze of settings.</p>
         </article>
         <article class="home-process-card">
           <div class="home-process-number">02</div>
           <h3>Process in your browser</h3>
-          <p>Files, text, passwords, and QR payloads are handled by browser APIs on your device instead of being sent to a backend.</p>
+          <p>Files, text, passwords, and QR payloads are handled by browser APIs on your device instead of being sent to
+            a backend.</p>
         </article>
         <article class="home-process-card">
           <div class="home-process-number">03</div>
           <h3>Download and move on</h3>
-          <p>Save the finished output locally, clear the page when you are done, and leave no account or cloud workspace behind.</p>
+          <p>Save the finished output locally, clear the page when you are done, and leave no account or cloud workspace
+            behind.</p>
         </article>
       </div>
     </div>
@@ -1236,10 +1262,12 @@
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">100% Client-Side Privacy</h2>
+        <h2 class="section-title">100% Client-Side Processing</h2>
         <div class="section-divider"></div>
-        <p class="section-sub">Cipher tools process all data directly inside your web browser. No server uploads, no
-          cloud logs, and no privacy compromises.</p>
+        <p class="section-sub">Files and text are processed in your browser and are not sent to Cipher for tool
+          processing. Advertising, analytics, hosting, and other third-party services may still receive data as
+          described in our Privacy Policy.</p>
+        <!-- <p><a href="/privacy/">Privacy Policy</a></p> -->
       </div>
 
       <div class="grid-3">
@@ -1276,9 +1304,9 @@
               <line x1="12" y1="17" x2="12" y2="21" />
             </svg>
           </div>
-          <h3 class="feature-title">Offline Supported</h3>
-          <p class="feature-desc">Cipher utilizes Progressive Web App (PWA) caching so you can use all security tools
-            even when completely offline.</p>
+          <h3 class="feature-title">No Account Required</h3>
+          <p class="feature-desc">Use Cipher's browser-based tools without creating an account or uploading files for
+            tool processing.</p>
         </div>
       </div>
     </div>
@@ -1288,26 +1316,58 @@
   <section class="section">
     <div class="container home-usecases">
       <div class="home-usecases-copy">
-        <h2 class="section-title">Built for the small moments that need privacy.</h2>
+        <h2 class="section-title">Built for everyday tasks that need care.</h2>
         <div class="section-divider"></div>
-        <p class="section-sub">Cipher keeps practical security tasks close at hand, whether you are preparing a document, checking a download, or sharing a connection.</p>
+        <p class="section-sub">Cipher keeps practical security tasks close at hand, whether you are preparing a
+          document, checking a download, or sharing a connection.</p>
       </div>
       <div class="home-usecase-grid">
         <article class="home-usecase">
-          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h5"></path></svg></span>
-          <div><h3>Share a sensitive document</h3><p>Encrypt a file before it leaves your device.</p></div>
+          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6M8 13h8M8 17h5"></path>
+            </svg></span>
+          <div>
+            <h3>Share a sensitive document</h3>
+            <p>Encrypt a file before it leaves your device.</p>
+          </div>
         </article>
         <article class="home-usecase">
-          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"></path><path d="M12 7v5l3 2"></path><path d="M16 3h5v5"></path></svg></span>
-          <div><h3>Verify a file or message</h3><p>Generate a hash and compare it with confidence.</p></div>
+          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9"></path>
+              <path d="M12 7v5l3 2"></path>
+              <path d="M16 3h5v5"></path>
+            </svg></span>
+          <div>
+            <h3>Verify a file or message</h3>
+            <p>Generate a hash and compare it with confidence.</p>
+          </div>
         </article>
         <article class="home-usecase">
-          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M14 14h3v3h-3zM18 18h3v3h-3zM18 14h3M14 18h1"></path></svg></span>
-          <div><h3>Connect people quickly</h3><p>Create a clean QR code for a link, message, or WiFi network.</p></div>
+          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+              <path d="M14 14h3v3h-3zM18 18h3v3h-3zM18 14h3M14 18h1"></path>
+            </svg></span>
+          <div>
+            <h3>Connect people quickly</h3>
+            <p>Create a clean QR code for a link, message, or WiFi network.</p>
+          </div>
         </article>
         <article class="home-usecase">
-          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 4 6 6M4 10l6-6M14 4h6v6M14 20h6v-6"></path><path d="M14 10h6M14 14h6"></path></svg></span>
-          <div><h3>Prepare files for delivery</h3><p>Compress images or merge PDFs without uploading them.</p></div>
+          <span class="home-usecase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m4 4 6 6M4 10l6-6M14 4h6v6M14 20h6v-6"></path>
+              <path d="M14 10h6M14 14h6"></path>
+            </svg></span>
+          <div>
+            <h3>Prepare files for delivery</h3>
+            <p>Compress images or merge PDFs without uploading them.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -1324,19 +1384,17 @@
       <div class="home-faq-list">
         <details class="home-faq-item">
           <summary>Are files uploaded?</summary>
-          <div class="home-faq-answer">No. Files and passwords are processed in your browser and are not sent to Cipher's backend.</div>
-        </details>
-        <details class="home-faq-item">
-          <summary>Can Cipher work offline?</summary>
-          <div class="home-faq-answer">After the app shell is cached, supported tools work offline. First-time downloads and external resources still need a connection.</div>
+          <div class="home-faq-answer">No. Files and passwords are processed in your browser and are not sent to
+            Cipher's backend.</div>
         </details>
         <details class="home-faq-item">
           <summary>What if I lose my password?</summary>
-          <div class="home-faq-answer">Cipher cannot recover it. AES-256-GCM requires the original password to decrypt your file.</div>
+          <div class="home-faq-answer">Cipher cannot recover it. AES-256-GCM requires the original password to decrypt
+            your file.</div>
         </details>
         <details class="home-faq-item">
           <summary>Does Cipher save results?</summary>
-          <div class="home-faq-answer">Results stay in browser memory until downloaded or the page closes. Files and results are not stored in the service-worker cache.</div>
+          <div class="home-faq-answer">Results stay in browser memory until downloaded or the page closes.</div>
         </details>
       </div>
     </div>
@@ -1348,7 +1406,11 @@
       <h2 class="section-title">Make your next file task a private one.</h2>
       <p class="section-sub">Open a tool, work locally, and keep the final result on your own machine.</p>
       <div class="home-hero-actions">
-        <a href="#tools-dashboard" class="hero-cta">Browse all tools <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+        <a href="#tools-dashboard" class="hero-cta">Browse all tools <svg viewBox="0 0 24 24" aria-hidden="true"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg></a>
         <a href="/tools/encrypt/" class="home-hero-secondary">Protect a file locally</a>
       </div>
     </div>
@@ -1367,7 +1429,7 @@
         <a href="/contact/" style="color: var(--text-2);">Contact Us</a>
         <a href="/terms/" style="color: var(--text-2);">Terms of Service</a>
       </div>
-      <p>&copy; Cipher – Free Online Security & File Tools. 100% Client-Side Executable.</p>
+      <p>&copy; Cipher – Free Online Security & File Tools.</p>
     </div>
   </footer>
 

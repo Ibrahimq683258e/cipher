@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- TODO: change example.com to the real production domain. -->
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://cipher-tools.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/password-generator/</loc>
+    <loc>https://cipher-tools.app/tools/password-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/hash-generator/</loc>
+    <loc>https://cipher-tools.app/tools/hash-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/base64/</loc>
+    <loc>https://cipher-tools.app/tools/base64/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/qr-generator/</loc>
+    <loc>https://cipher-tools.app/tools/qr-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/image-compressor/</loc>
+    <loc>https://cipher-tools.app/tools/image-compressor/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/merge-pdf/</loc>
+    <loc>https://cipher-tools.app/tools/merge-pdf/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/tools/encrypt/</loc>
+    <loc>https://cipher-tools.app/tools/encrypt/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

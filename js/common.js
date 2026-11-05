@@ -1,4 +1,22 @@
 // Cipher Shared Common Utilities & Navigation
+const navigationEntry = performance.getEntriesByType('navigation')[0];
+if (navigationEntry?.type === 'reload' && !window.location.hash && 'scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+  window.addEventListener('pageshow', () => {
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      history.scrollRestoration = 'auto';
+    });
+  }, { once: true });
+}
+
+const siteFeaturesScript = document.createElement('script');
+siteFeaturesScript.src = new URL('site-features.js', document.currentScript.src).href;
+siteFeaturesScript.addEventListener('error', () => {
+  console.error('Cipher site features failed to load.');
+}, { once: true });
+document.head.append(siteFeaturesScript);
+
 if (!window.CipherI18n && !document.querySelector('script[data-cipher-translations]')) {
   const translationsScript = document.createElement('script');
   translationsScript.src = '/js/translations.js';
@@ -168,24 +186,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // FAQ Accordion Toggle Support
+  const faqCloseTimers = new WeakMap();
   document.querySelectorAll('.faq-item summary').forEach(summary => {
     summary.addEventListener('click', (event) => {
       const item = summary.closest('.faq-item');
       if (!item) return;
       event.preventDefault();
-      const shouldOpen = !item.open;
+      const shouldOpen = !item.open || item.classList.contains('is-closing');
+      window.clearTimeout(faqCloseTimers.get(item));
 
       if (shouldOpen) {
+        item.classList.remove('is-closing');
         item.open = true;
-        requestAnimationFrame(() => item.classList.remove('is-closing'));
         return;
       }
 
       item.classList.add('is-closing');
-      window.setTimeout(() => {
+      const closeTimer = window.setTimeout(() => {
         item.open = false;
         item.classList.remove('is-closing');
+        faqCloseTimers.delete(item);
       }, 280);
+      faqCloseTimers.set(item, closeTimer);
     });
   });
 
@@ -217,8 +239,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Service worker registration
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
-  }
 });
