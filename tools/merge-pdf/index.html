@@ -2,23 +2,37 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
   <meta charset="UTF-8">
   <title>Merge PDF Files Free Online – Client-Side PDF Joiner | Cipher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/merge-pdf/">
-  <meta name="description" content="Combine multiple PDF documents into a single PDF file 100% locally in your web browser with zero uploads using pdf-lib.js.">
-  <meta name="keywords" content="free PDF merger, merge PDF files, combine PDFs offline, private PDF tool, browser PDF joiner">
+  <meta name="description"
+    content="Combine multiple PDF documents into a single PDF file 100% locally in your web browser with zero uploads using pdf-lib.js.">
+  <meta name="keywords"
+    content="free PDF merger, merge PDF files, combine PDFs offline, private PDF tool, browser PDF joiner">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Merge PDF Files Free Online – Cipher">
-  <meta property="og:description" content="Combine PDF files in your browser. Files are processed locally; see our Privacy Policy for third-party website services.">
+  <meta property="og:description"
+    content="Combine PDF files in your browser. Files are processed locally; see our Privacy Policy for third-party website services.">
   <meta property="og:url" content="https://example.com/tools/merge-pdf/">
   <meta property="og:image" content="/images/Cipher.png">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     .tool-card-container {
@@ -373,12 +387,16 @@
     }
 
     @keyframes stepNumberFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0deg);
       }
+
       35% {
         transform: translateY(-2px) rotate(-3deg);
       }
+
       68% {
         transform: translateY(1px) rotate(2deg);
       }
@@ -431,6 +449,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .pdf-action-btn svg,
       .step-card,
       .step-num,
@@ -446,7 +465,8 @@
       }
     }
 
-    .how-to-section, .faq-section-tool {
+    .how-to-section,
+    .faq-section-tool {
       margin-top: 60px;
     }
   </style>
@@ -462,9 +482,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -476,8 +498,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -494,7 +518,8 @@
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">Merge PDF Files</h1>
-        <p class="section-sub">Combine 2 or more PDF files into a single document directly in your browser. Reorder pages and files with ease.</p>
+        <p class="section-sub">Combine 2 or more PDF files into a single document directly in your browser. Reorder
+          pages and files with ease.</p>
         <div class="tool-badges" aria-label="Merge PDF benefits">
           <span class="tool-badge">100% Client-Side</span>
           <span class="tool-badge">No Uploads</span>
@@ -508,7 +533,8 @@
           <!-- Dropzone -->
           <div class="dropzone" id="pdfDropzone">
             <div class="dz-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="12" y1="18" x2="12" y2="12"></line>
@@ -535,7 +561,8 @@
 
           <div class="pdf-action-buttons">
             <button class="btn-primary merge-btn" id="btnMergePDF" type="button" disabled>
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
                 <path d="M9 8h6M9 12h6M9 16h3"></path>
                 <path d="M3 7v12a2 2 0 0 0 2 2"></path>
@@ -543,14 +570,16 @@
               <span class="button-label">Merge PDFs</span>
             </button>
             <button class="btn-ghost clear-btn" id="btnClearPDFs" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6"></path>
                 <path d="M10 11v6M14 11v6"></path>
               </svg>
               <span>Clear All</span>
             </button>
           </div>
-          <progress class="merge-progress" id="mergeProgress" max="100" value="0" hidden aria-label="Merge progress"></progress>
+          <progress class="merge-progress" id="mergeProgress" max="100" value="0" hidden
+            aria-label="Merge progress"></progress>
           <p class="merge-status" id="mergeStatus" role="status" aria-live="polite"></p>
 
         </div>
@@ -576,14 +605,16 @@
             <div class="step-num">2</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Arrange Order</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Drag files into order or use the Move Up and Move Down buttons.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Drag files into order or use the Move Up and Move Down
+                buttons.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Merge & Download</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Merge PDFs' to join the documents into one file and download the result.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Merge PDFs' to join the documents into one file
+                and download the result.</p>
             </div>
           </div>
         </div>
@@ -598,15 +629,24 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>Are my PDF documents uploaded to a server?</summary>
-            <div class="faq-answer"><p>No. PDF document processing and merging uses `pdf-lib.js` directly in your web browser. No document data is sent over the network.</p></div>
+            <div class="faq-answer">
+              <p>No. PDF document processing and merging uses `pdf-lib.js` directly in your web browser. No document
+                data is sent over the network.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Is there a file size limit for merging PDFs?</summary>
-            <div class="faq-answer"><p>Because processing relies on your device's RAM and CPU, you can merge documents of any size as long as your browser memory permits.</p></div>
+            <div class="faq-answer">
+              <p>Because processing relies on your device's RAM and CPU, you can merge documents of any size as long as
+                your browser memory permits.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Will my PDF page quality or vector formatting be degraded?</summary>
-            <div class="faq-answer"><p>No. PDF page contents, vector fonts, and layout structures are copied page-by-page into the new container document without rasterizing or losing clarity.</p></div>
+            <div class="faq-answer">
+              <p>No. PDF page contents, vector fonts, and layout structures are copied page-by-page into the new
+                container document without rasterizing or losing clarity.</p>
+            </div>
           </details>
         </div>
       </section>
@@ -685,8 +725,8 @@
 
       function movePdf(fromIndex, toIndex) {
         if (isMerging || fromIndex === toIndex ||
-            fromIndex < 0 || toIndex < 0 ||
-            fromIndex >= selectedPdfFiles.length || toIndex >= selectedPdfFiles.length) return;
+          fromIndex < 0 || toIndex < 0 ||
+          fromIndex >= selectedPdfFiles.length || toIndex >= selectedPdfFiles.length) return;
         const [entry] = selectedPdfFiles.splice(fromIndex, 1);
         selectedPdfFiles.splice(toIndex, 0, entry);
         renderPdfList();

@@ -2,23 +2,39 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
+
+
   <meta charset="UTF-8">
   <title>Free Client-Side Image Compressor – JPEG, PNG, WebP | Cipher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/image-compressor/">
-  <meta name="description" content="Compress PNG, JPEG, and WebP images locally in your browser. Choose an output format, resize images, and compare file sizes with zero uploads.">
-  <meta name="keywords" content="free image compressor, JPEG compressor, PNG compressor, WebP compressor, offline image compression, private image tool">
+  <meta name="description"
+    content="Compress PNG, JPEG, and WebP images locally in your browser. Choose an output format, resize images, and compare file sizes with zero uploads.">
+  <meta name="keywords"
+    content="free image compressor, JPEG compressor, PNG compressor, WebP compressor, offline image compression, private image tool">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Client-Side Image Compressor – Cipher">
-  <meta property="og:description" content="Compress image files locally, choose an output format, resize, and compare file sizes before downloading.">
+  <meta property="og:description"
+    content="Compress image files locally, choose an output format, resize, and compare file sizes before downloading.">
   <meta property="og:url" content="https://example.com/tools/image-compressor/">
   <meta property="og:image" content="/images/Cipher.png">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     .tool-card-container {
@@ -103,9 +119,17 @@
       border-radius: var(--radius-pill);
     }
 
-    .size-badge.is-smaller { color: var(--success); }
-    .size-badge.is-larger { color: var(--primary); }
-    .size-badge.is-unchanged { color: var(--text-2); }
+    .size-badge.is-smaller {
+      color: var(--success);
+    }
+
+    .size-badge.is-larger {
+      color: var(--primary);
+    }
+
+    .size-badge.is-unchanged {
+      color: var(--text-2);
+    }
 
     .image-dimensions {
       margin-top: 8px;
@@ -209,7 +233,9 @@
       font-size: 13px;
     }
 
-    .compression-status.is-error { color: var(--error); }
+    .compression-status.is-error {
+      color: var(--error);
+    }
 
     .slider-row {
       display: flex;
@@ -340,12 +366,16 @@
     }
 
     @keyframes stepNumberFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0deg);
       }
+
       35% {
         transform: translateY(-2px) rotate(-3deg);
       }
+
       68% {
         transform: translateY(1px) rotate(2deg);
       }
@@ -369,6 +399,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       #qualitySlider::-webkit-slider-thumb,
       #qualitySlider::-moz-range-thumb,
       .step-card,
@@ -384,7 +415,8 @@
       }
     }
 
-    .how-to-section, .faq-section-tool {
+    .how-to-section,
+    .faq-section-tool {
       margin-top: 60px;
     }
   </style>
@@ -400,9 +432,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -414,8 +448,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -432,7 +468,8 @@
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">Image Compressor</h1>
-        <p class="section-sub">Compress images as JPEG, WebP, or PNG, optionally resize them, and compare dimensions and file sizes before downloading.</p>
+        <p class="section-sub">Compress images as JPEG, WebP, or PNG, optionally resize them, and compare dimensions and
+          file sizes before downloading.</p>
         <div class="tool-badges" aria-label="Image compressor benefits">
           <span class="tool-badge">100% Client-Side</span>
           <span class="tool-badge">No Uploads</span>
@@ -446,7 +483,8 @@
           <!-- Dropzone -->
           <div class="dropzone" id="imgCompressDropzone">
             <div class="dz-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                 <polyline points="21 15 16 10 5 21"></polyline>
@@ -466,7 +504,8 @@
               </div>
               <div class="quality-presets" aria-label="Quality presets">
                 <button class="quality-preset" type="button" data-quality="40" aria-pressed="false">Low (40%)</button>
-                <button class="quality-preset" type="button" data-quality="70" aria-pressed="false">Medium (70%)</button>
+                <button class="quality-preset" type="button" data-quality="70" aria-pressed="false">Medium
+                  (70%)</button>
                 <button class="quality-preset" type="button" data-quality="90" aria-pressed="false">High (90%)</button>
               </div>
               <input type="range" id="qualitySlider" class="slider-input" min="5" max="100" value="80">
@@ -487,7 +526,8 @@
                 <input id="maxHeight" type="number" min="1" step="1" inputmode="numeric" placeholder="Keep original">
               </label>
             </div>
-            <p class="compression-options-hint">Maximum dimensions are limits; the image keeps its original aspect ratio and is never enlarged.</p>
+            <p class="compression-options-hint">Maximum dimensions are limits; the image keeps its original aspect ratio
+              and is never enlarged.</p>
             <p id="compressionStatus" class="compression-status" role="status" aria-live="polite"></p>
 
             <!-- Comparison Grid -->
@@ -509,7 +549,8 @@
 
             <div style="margin-top: 24px;">
               <button class="btn-primary download-btn" id="btnDownloadCompressed" type="button" disabled>
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3v12"></path>
                   <path d="m7 10 5 5 5-5"></path>
                   <path d="M5 21h14"></path>
@@ -535,21 +576,24 @@
             <div class="step-num">1</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Select Image</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Drop a PNG, JPEG, or WebP image into the upload dropzone.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Drop a PNG, JPEG, or WebP image into the upload
+                dropzone.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Adjust Quality</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Choose an output format, set optional maximum dimensions, and use a preset or the slider to adjust quality.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Choose an output format, set optional maximum
+                dimensions, and use a preset or the slider to adjust quality.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Download File</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Compare the dimensions and file sizes, then download your compressed image.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Compare the dimensions and file sizes, then download
+                your compressed image.</p>
             </div>
           </div>
         </div>
@@ -564,15 +608,23 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>How does client-side image compression work?</summary>
-            <div class="faq-answer"><p>Image compression is rendered using HTML5 Canvas APIs. The image is drawn onto an offscreen canvas element and exported with custom lossy or lossless compression levels.</p></div>
+            <div class="faq-answer">
+              <p>Image compression is rendered using HTML5 Canvas APIs. The image is drawn onto an offscreen canvas
+                element and exported with custom lossy or lossless compression levels.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Are my pictures uploaded to a cloud server?</summary>
-            <div class="faq-answer"><p>No. The canvas processing happens entirely in your local browser memory. No network uploads take place.</p></div>
+            <div class="faq-answer">
+              <p>No. The canvas processing happens entirely in your local browser memory. No network uploads take place.
+              </p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Which image formats are supported?</summary>
-            <div class="faq-answer"><p>Cipher Image Compressor supports standard web formats including JPEG, PNG, and WebP.</p></div>
+            <div class="faq-answer">
+              <p>Cipher Image Compressor supports standard web formats including JPEG, PNG, and WebP.</p>
+            </div>
           </details>
         </div>
       </section>
@@ -655,7 +707,7 @@
         const maxHeight = rawMaxHeight ? Number(rawMaxHeight) : Infinity;
 
         if ((rawMaxWidth && (!Number.isSafeInteger(maxWidth) || maxWidth < 1)) ||
-            (rawMaxHeight && (!Number.isSafeInteger(maxHeight) || maxHeight < 1))) {
+          (rawMaxHeight && (!Number.isSafeInteger(maxHeight) || maxHeight < 1))) {
           throw new Error('Maximum width and height must be positive whole numbers.');
         }
 

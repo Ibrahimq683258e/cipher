@@ -2,12 +2,22 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
   <meta charset="UTF-8">
   <title>Contact Us – Cipher Security & File Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="Get in touch with the Cipher engineering team for inquiries, security feedback, and feature requests.">
+  <meta name="description"
+    content="Get in touch with the Cipher engineering team for inquiries, security feedback, and feature requests.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact Us – Cipher">
   <meta property="og:description" content="Contact Cipher for inquiries and support.">
@@ -15,7 +25,9 @@
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
@@ -92,7 +104,6 @@
       cursor: not-allowed;
       filter: saturate(0.8);
     }
-
   </style>
 </head>
 
@@ -106,9 +117,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -120,8 +133,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -155,12 +170,16 @@
 
           <div class="form-group">
             <label class="field-label">Message</label>
-            <textarea class="form-control" id="contactMessage" style="height: 120px;" maxlength="5000" placeholder="Type your message here..." required></textarea>
+            <textarea class="form-control" id="contactMessage" style="height: 120px;" maxlength="5000"
+              placeholder="Type your message here..." required></textarea>
           </div>
 
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAE695HIPb-6T9Vs6" data-theme="auto" data-callback="onContactTurnstileSuccess" data-expired-callback="onContactTurnstileExpired" data-error-callback="onContactTurnstileError"></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAE695HIPb-6T9Vs6" data-theme="auto"
+            data-callback="onContactTurnstileSuccess" data-expired-callback="onContactTurnstileExpired"
+            data-error-callback="onContactTurnstileError"></div>
           <button class="btn-primary" type="submit" id="btnSubmitContact">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="m22 2-7 20-4-9-9-4Z" />
               <path d="M22 2 11 13" />
             </svg>
@@ -238,7 +257,7 @@
         if (isOffline) {
           setStatus('You are offline. Please reconnect to the internet before sending your message.', 'warning');
         } else if (contactStatus.classList.contains('is-warning') &&
-                   contactStatus.textContent.startsWith('You are offline.')) {
+          contactStatus.textContent.startsWith('You are offline.')) {
           clearStatus();
         }
       }
@@ -246,7 +265,7 @@
       window.onContactTurnstileSuccess = token => {
         turnstileToken = token;
         if (contactStatus.classList.contains('is-error') &&
-            contactStatus.textContent.includes('security check')) {
+          contactStatus.textContent.includes('security check')) {
           clearStatus();
         }
       };

@@ -2,23 +2,39 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
+
   <meta charset="UTF-8">
   <title>Base64 Encoder & Decoder – Text & Image to Base64 | Cipher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/base64/">
-  <meta name="description" content="Encode and decode text strings to Base64 and convert image files into Base64 Data URI strings 100% client-side in your browser.">
-  <meta name="keywords" content="free Base64 encoder, Base64 decoder, image to Base64, offline Base64 converter, private browser tool">
+  <meta name="description"
+    content="Encode and decode text strings to Base64 and convert image files into Base64 Data URI strings 100% client-side in your browser.">
+  <meta name="keywords"
+    content="free Base64 encoder, Base64 decoder, image to Base64, offline Base64 converter, private browser tool">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Base64 Encoder & Decoder – Cipher">
-  <meta property="og:description" content="Convert text and images to Base64 data strings offline with zero server uploads.">
+  <meta property="og:description"
+    content="Convert text and images to Base64 data strings offline with zero server uploads.">
   <meta property="og:url" content="https://example.com/tools/base64/">
   <meta property="og:image" content="/images/Cipher.png">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     .tool-card-container {
@@ -237,18 +253,23 @@
     }
 
     @keyframes stepNumberFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0deg);
       }
+
       35% {
         transform: translateY(-2px) rotate(-3deg);
       }
+
       68% {
         transform: translateY(1px) rotate(2deg);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .base64-mode-btn svg,
       .step-card,
       .step-num {
@@ -262,7 +283,8 @@
       }
     }
 
-    .how-to-section, .faq-section-tool {
+    .how-to-section,
+    .faq-section-tool {
       margin-top: 60px;
     }
 
@@ -316,9 +338,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -330,8 +354,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -348,7 +374,8 @@
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">Base64 Encoder & Decoder</h1>
-        <p class="section-sub">Convert text to Base64, decode Base64 back to original text, or convert images to Data URL strings.</p>
+        <p class="section-sub">Convert text to Base64, decode Base64 back to original text, or convert images to Data
+          URL strings.</p>
         <div class="tool-badges" aria-label="Base64 converter benefits">
           <span class="tool-badge">Client-Side Processing</span>
           <span class="tool-badge">Encode Decode</span>
@@ -362,7 +389,8 @@
           <!-- Mode Tabs -->
           <div class="base64-mode-tabs">
             <button class="base64-mode-btn active" id="tabTextMode" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
                 <path d="M14 3v6h6"></path>
                 <path d="M8 14h8M8 18h5"></path>
@@ -370,7 +398,8 @@
               <span>Text Converter</span>
             </button>
             <button class="base64-mode-btn" id="tabImageMode" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                 <polyline points="21 15 16 10 5 21"></polyline>
@@ -382,11 +411,16 @@
           <!-- TEXT SECTION -->
           <div id="textSection">
             <label class="field-label">Input Text or Base64</label>
-            <textarea id="base64InputText" class="text-area-box" placeholder="Enter plain text to encode or Base64 string to decode..."></textarea>
+            <textarea id="base64InputText" class="text-area-box"
+              placeholder="Enter plain text to encode or Base64 string to decode..."></textarea>
 
             <div class="btn-group">
               <button class="btn-primary" id="btnEncodeText" type="button">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5" /><path d="m5 12 7-7 7 7" /></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19V5" />
+                  <path d="m5 12 7-7 7 7" />
+                </svg>
                 <span>Encode to Base64</span>
               </button>
               <button class="btn-ghost" id="btnClearText" type="button" style="margin-top:0;">
@@ -395,16 +429,25 @@
             </div>
 
             <label class="field-label">Output Result</label>
-            <textarea id="base64OutputText" class="text-area-box" readonly placeholder="Output will appear here..."></textarea>
+            <textarea id="base64OutputText" class="text-area-box" readonly
+              placeholder="Output will appear here..."></textarea>
             <p id="base64TextStatus" role="status" aria-live="polite"></p>
 
             <div class="btn-group">
               <button class="btn-primary" id="btnDecodeOutput" type="button" disabled>
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14" />
+                  <path d="m19 12-7 7-7-7" />
+                </svg>
                 <span>Decode Output</span>
               </button>
               <button class="btn-ghost" id="btnCopyTextResult" type="button" style="margin-top:0;">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
                 <span>Copy Output</span>
               </button>
             </div>
@@ -414,7 +457,8 @@
           <div id="imageSection" style="display: none;">
             <div class="dropzone" id="imgDropzone" style="margin-bottom: 20px;">
               <div class="dz-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                   <circle cx="8.5" cy="8.5" r="1.5"></circle>
                   <polyline points="21 15 16 10 5 21"></polyline>
@@ -430,9 +474,14 @@
 
             <div style="margin-top: 20px;">
               <label class="field-label">Base64 Data URI Output</label>
-              <textarea id="base64ImageOutput" class="text-area-box" readonly placeholder="Base64 Data URI will appear here..."></textarea>
+              <textarea id="base64ImageOutput" class="text-area-box" readonly
+                placeholder="Base64 Data URI will appear here..."></textarea>
               <button class="btn-primary" id="btnCopyImageBase64" type="button">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
                 <span>Copy Base64 String</span>
               </button>
             </div>
@@ -454,21 +503,24 @@
             <div class="step-num">1</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Select Mode</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Switch between Text Converter and Image to Base64 Data URI modes.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Switch between Text Converter and Image to Base64 Data
+                URI modes.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Enter Input or Image</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Type text or drop an image file into the drag-and-drop file upload zone.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Type text or drop an image file into the drag-and-drop
+                file upload zone.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Encode & Copy</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Encode' or 'Copy' to retrieve the computed Base64 string instantly.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Encode' or 'Copy' to retrieve the computed
+                Base64 string instantly.</p>
             </div>
           </div>
         </div>
@@ -483,15 +535,24 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>What is Base64 encoding used for?</summary>
-            <div class="faq-answer"><p>Base64 encoding converts binary data into ASCII text representation. It is widely used in web development for embedding inline images in CSS/HTML and transmitting binary payloads over text-based protocols.</p></div>
+            <div class="faq-answer">
+              <p>Base64 encoding converts binary data into ASCII text representation. It is widely used in web
+                development for embedding inline images in CSS/HTML and transmitting binary payloads over text-based
+                protocols.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Is Base64 encoding a form of encryption?</summary>
-            <div class="faq-answer"><p>No. Base64 is an encoding format, not encryption. Anyone can decode Base64 data. If you need confidential encryption, use our AES-256 File Encryptor tool.</p></div>
+            <div class="faq-answer">
+              <p>No. Base64 is an encoding format, not encryption. Anyone can decode Base64 data. If you need
+                confidential encryption, use our AES-256 File Encryptor tool.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Are my images or text uploaded anywhere?</summary>
-            <div class="faq-answer"><p>No. All text string and image file reader conversions occur locally in your browser DOM.</p></div>
+            <div class="faq-answer">
+              <p>No. All text string and image file reader conversions occur locally in your browser DOM.</p>
+            </div>
           </details>
         </div>
       </section>

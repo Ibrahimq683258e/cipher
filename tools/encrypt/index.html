@@ -2,6 +2,16 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
   <meta charset="UTF-8">
   <title>Cipher - Free Online Security &amp; File Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,16 +19,20 @@
   <meta name="apple-mobile-web-app-title" content="Cipher">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/encrypt/">
-  <meta name="description" content="Encrypt and decrypt files in your browser with AES-256-GCM and PBKDF2. Files are processed locally; third-party website services may still receive browser data.">
-  <meta name="keywords" content="free file encryption, AES-256-GCM encryptor, offline file encryption, private file protection, browser encryption, no upload encryptor">
+  <meta name="description"
+    content="Encrypt and decrypt files in your browser with AES-256-GCM and PBKDF2. Files are processed locally; third-party website services may still receive browser data.">
+  <meta name="keywords"
+    content="free file encryption, AES-256-GCM encryptor, offline file encryption, private file protection, browser encryption, no upload encryptor">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cipher - Secure Client-Side File Encryptor">
-  <meta property="og:description" content="Protect files with AES-256-GCM encryption in your browser. File processing is local; see our Privacy Policy for third-party services.">
+  <meta property="og:description"
+    content="Protect files with AES-256-GCM encryption in your browser. File processing is local; see our Privacy Policy for third-party services.">
   <meta property="og:url" content="https://example.com/tools/encrypt/">
   <meta property="og:image" content="/images/Cipher.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cipher - Secure Client-Side File Encryptor">
-  <meta name="twitter:description" content="Protect sensitive files privately in your browser with secure client-side encryption.">
+  <meta name="twitter:description"
+    content="Protect sensitive files privately in your browser with secure client-side encryption.">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +64,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -61,7 +77,12 @@
         <li><a href="/#security-tools">Security Tools</a></li>
         <li><a href="/#file-tools">File Tools</a></li>
         <li><button class="theme-toggle-btn" title="Toggle Theme" type="button"></button></li>
-        <li><a href="#encryptor" class="btn-nav">Protect File <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg></a></li>
+        <li><a href="#encryptor" class="btn-nav">Protect File <svg class="protect-icon" viewBox="0 0 24 24"
+              aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg></a></li>
       </ul>
     </div>
   </nav>
@@ -93,7 +114,8 @@
           <div class="brand">
           </div>
           <div class="window-status-actions">
-            <div class="local-pill" id="localStatus"><span class="dot"></span><span id="localStatusText">Online</span></div>
+            <div class="local-pill" id="localStatus"><span class="dot"></span><span id="localStatusText">Online</span>
+            </div>
           </div>
         </div>
 
@@ -150,7 +172,8 @@
             </div>
 
             <div class="queue-panel" id="queuePanel" aria-live="polite">
-              <div class="queue-header"><span id="queueCount">1 file ready</span><button class="text-btn" id="addMoreFilesBtn" type="button">Add more</button></div>
+              <div class="queue-header"><span id="queueCount">1 file ready</span><button class="text-btn"
+                  id="addMoreFilesBtn" type="button">Add more</button></div>
               <div class="queue-list" id="queueList"></div>
             </div>
 
@@ -159,13 +182,19 @@
                 <label class="field-label">Password</label>
                 <div class="field-wrap">
                   <input type="password" placeholder="Enter password" id="pwMain">
-                  <button class="field-toggle" data-eye="pwMain" type="button" aria-label="Show password" title="Show password">
-                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <button class="field-toggle" data-eye="pwMain" type="button" aria-label="Show password"
+                    title="Show password">
+                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" aria-hidden="true">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
                     </svg>
-                    <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                      <path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" />
+                      <path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
                     </svg>
                   </button>
                 </div>
@@ -184,12 +213,18 @@
                       stroke-linecap="round" stroke-linejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg></span>
-                  <button class="field-toggle confirm-toggle" data-eye="pwConfirm" type="button" aria-label="Show password confirmation" title="Show password confirmation"><svg class="eye-icon"
-                      viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <button class="field-toggle confirm-toggle" data-eye="pwConfirm" type="button"
+                    aria-label="Show password confirmation" title="Show password confirmation"><svg class="eye-icon"
+                      viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
-                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                      <path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" />
+                      <path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
                     </svg></button>
                 </div>
               </div>
@@ -204,7 +239,11 @@
               </div>
             </div>
 
-            <button class="btn-primary" id="primaryFromPassword" disabled><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg><span>Encrypt file</span></button>
+            <button class="btn-primary" id="primaryFromPassword" disabled><svg viewBox="0 0 24 24" aria-hidden="true"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg><span>Encrypt file</span></button>
           </div>
 
           <!-- PANEL: PROGRESS -->
@@ -249,9 +288,24 @@
                 <span class="meta-pill" id="successMetaTime">0.0s</span>
               </div>
               <div class="result-actions">
-                <button class="btn-primary" id="successDownloadBtn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg><span>Download File</span></button>
-                <button class="btn-primary batch-download-btn" id="successDownloadAllBtn" hidden><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg><span>Download all files</span></button>
-                <button class="btn-ghost" id="successGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v6h6" /></svg><span>Encrypt another file</span></button>
+                <button class="btn-primary" id="successDownloadBtn"><svg viewBox="0 0 24 24" aria-hidden="true"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v12" />
+                    <path d="m7 10 5 5 5-5" />
+                    <path d="M5 21h14" />
+                  </svg><span>Download File</span></button>
+                <button class="btn-primary batch-download-btn" id="successDownloadAllBtn" hidden><svg
+                    viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v12" />
+                    <path d="m7 10 5 5 5-5" />
+                    <path d="M5 21h14" />
+                  </svg><span>Download all files</span></button>
+                <button class="btn-ghost" id="successGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7" />
+                    <path d="M3 4v6h6" />
+                  </svg><span>Encrypt another file</span></button>
               </div>
             </div>
           </div>
@@ -277,12 +331,17 @@
                 <label class="field-label">Password</label>
                 <div class="field-wrap error">
                   <input type="password" id="pwError" placeholder="Enter password">
-                  <button class="field-toggle" data-eye="pwError" type="button" aria-label="Show password" title="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none"
-                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <button class="field-toggle" data-eye="pwError" type="button" aria-label="Show password"
+                    title="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
-                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M3 3l18 18" /><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" /><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" /><path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
+                    </svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                      <path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a18.4 18.4 0 0 1-3.2 4.1" />
+                      <path d="M6.6 6.7C3.7 8.5 2 12 2 12s3.5 7 10 7a10.8 10.8 0 0 0 3-.4" />
                     </svg></button>
                 </div>
                 <div class="error-msg">
@@ -297,8 +356,16 @@
               </div>
             </div>
 
-            <button class="btn-primary" id="errorPrimary"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v6h6" /></svg><span>Try again</span></button>
-            <button class="btn-ghost" id="errorGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" /><path d="m9 9 6 6m0-6-6 6" /></svg><span>Choose a different file</span></button>
+            <button class="btn-primary" id="errorPrimary"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 4v6h6" />
+              </svg><span>Try again</span></button>
+            <button class="btn-ghost" id="errorGhost"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="m9 9 6 6m0-6-6 6" />
+              </svg><span>Choose a different file</span></button>
           </div>
 
         </div>
@@ -420,19 +487,31 @@
       <div class="faq-list">
         <details class="faq-item" open>
           <summary>Do my files ever leave my device?</summary>
-          <div class="faq-answer"><p>No. Cipher performs encryption and decryption in your browser with the Web Crypto API. Files and passwords are not uploaded to a server.</p></div>
+          <div class="faq-answer">
+            <p>No. Cipher performs encryption and decryption in your browser with the Web Crypto API. Files and
+              passwords are not uploaded to a server.</p>
+          </div>
         </details>
         <details class="faq-item">
           <summary>What happens if I forget my password?</summary>
-          <div class="faq-answer"><p>There is no password recovery path. Cipher is designed so only the password holder can unlock a file, so keep it in a trusted password manager.</p></div>
+          <div class="faq-answer">
+            <p>There is no password recovery path. Cipher is designed so only the password holder can unlock a file, so
+              keep it in a trusted password manager.</p>
+          </div>
         </details>
         <details class="faq-item">
           <summary>Which files can I encrypt?</summary>
-          <div class="faq-answer"><p>Any file type can be selected, including documents, images, archives, and media. The original filename is preserved inside the encrypted container.</p></div>
+          <div class="faq-answer">
+            <p>Any file type can be selected, including documents, images, archives, and media. The original filename is
+              preserved inside the encrypted container.</p>
+          </div>
         </details>
         <details class="faq-item">
           <summary>Which cryptography does Cipher use?</summary>
-          <div class="faq-answer"><p>Cipher derives a key with PBKDF2 and SHA-256, then protects the file with authenticated AES-256-GCM encryption using fresh random salt and IV values.</p></div>
+          <div class="faq-answer">
+            <p>Cipher derives a key with PBKDF2 and SHA-256, then protects the file with authenticated AES-256-GCM
+              encryption using fresh random salt and IV values.</p>
+          </div>
         </details>
       </div>
     </div>
@@ -447,10 +526,14 @@
       <ul>
         <li><b>Key Derivation:</b> PBKDF2 with SHA-256 algorithm and 250,000 iterations.</li>
         <li><b>Cipher:</b> AES-256-GCM authenticated encryption ensuring confidentiality and data integrity.</li>
-        <li><b>Local File Processing:</b> Selected files and passwords are processed in your browser and are not sent to Cipher for tool processing.</li>
+        <li><b>Local File Processing:</b> Selected files and passwords are processed in your browser and are not sent to
+          Cipher for tool processing.</li>
         <li><b>Binary Container:</b> Encrypted files output as `.cipher` files with preserved metadata.</li>
       </ul>
-      <button class="btn-primary" id="closeModalBtn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg><span>Got it</span></button>
+      <button class="btn-primary" id="closeModalBtn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 12 4 4L19 6" />
+        </svg><span>Got it</span></button>
     </div>
   </div>
 
@@ -463,7 +546,8 @@
         <a href="/contact/" style="color: var(--text-2);">Contact Us</a>
         <a href="/terms/" style="color: var(--text-2);">Terms of Service</a>
       </div>
-      <p>&copy; Cipher - Free Online Security &amp; File Tools. Secure, client-side encryption powered by Web Crypto API.</p>
+      <p>&copy; Cipher - Free Online Security &amp; File Tools. Secure, client-side encryption powered by Web Crypto
+        API.</p>
     </div>
   </footer>
 

@@ -2,23 +2,38 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
   <meta charset="UTF-8">
   <title>QR Code Studio – Generate & Scan QR Codes | Cipher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/qr-generator/">
-  <meta name="description" content="Generate and scan QR codes for plain text, website URLs, and WiFi network logins. Everything runs 100% client-side.">
-  <meta name="keywords" content="free QR code generator, QR scanner, offline QR tool, WiFi QR code, private QR generator, browser QR scanner">
+  <meta name="description"
+    content="Generate and scan QR codes for plain text, website URLs, and WiFi network logins. Everything runs 100% client-side.">
+  <meta name="keywords"
+    content="free QR code generator, QR scanner, offline QR tool, WiFi QR code, private QR generator, browser QR scanner">
   <meta property="og:type" content="website">
   <meta property="og:title" content="QR Code Studio – Cipher">
-  <meta property="og:description" content="Generate custom QR codes for text, URLs, and WiFi credentials. Download PNG outputs locally.">
+  <meta property="og:description"
+    content="Generate custom QR codes for text, URLs, and WiFi credentials. Download PNG outputs locally.">
   <meta property="og:url" content="https://example.com/tools/qr-generator/">
   <meta property="og:image" content="/images/Cipher.png">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     .tool-card-container {
@@ -179,6 +194,7 @@
         opacity: 0;
         transform: translateY(6px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -427,18 +443,23 @@
     }
 
     @keyframes stepNumberFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0deg);
       }
+
       35% {
         transform: translateY(-2px) rotate(-3deg);
       }
+
       68% {
         transform: translateY(1px) rotate(2deg);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .qr-tab-btn svg,
       .qr-form-enter,
       .qr-panel-enter,
@@ -455,7 +476,8 @@
 
     }
 
-    .how-to-section, .faq-section-tool {
+    .how-to-section,
+    .faq-section-tool {
       margin-top: 60px;
     }
 
@@ -518,13 +540,15 @@
 <body>
 
   <div class="qr-toast" id="qrDownloadToast" role="status" aria-live="polite" hidden>
-    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
       <path d="m5 12 4 4L19 6"></path>
     </svg>
     <span>QR code is successfully downloaded</span>
   </div>
   <div class="qr-toast qr-toast-offline" id="qrOfflineToast" role="status" aria-live="polite" hidden>
-    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
       <path d="M1 9a16 16 0 0 1 22 0"></path>
       <path d="M5 13a10 10 0 0 1 14 0"></path>
       <path d="M9 17a4 4 0 0 1 6 0"></path>
@@ -541,9 +565,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -555,8 +581,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -573,7 +601,8 @@
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">QR Code Studio</h1>
-        <p class="section-sub">Generate custom QR codes or scan one with your camera. Everything runs locally in your browser.</p>
+        <p class="section-sub">Generate custom QR codes or scan one with your camera. Everything runs locally in your
+          browser.</p>
         <div class="tool-badges" aria-label="QR code generator benefits">
           <span class="tool-badge">No Tracking</span>
           <span class="tool-badge">No Expiry</span>
@@ -586,32 +615,41 @@
 
           <!-- Mode Tabs -->
           <div class="qr-type-tabs" role="tablist" aria-label="QR code modes">
-            <button class="qr-tab-btn active" id="tabURL" type="button" role="tab" aria-selected="true" aria-controls="generatorPanel">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button class="qr-tab-btn active" id="tabURL" type="button" role="tab" aria-selected="true"
+              aria-controls="generatorPanel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="9"></circle>
                 <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
               </svg>
               <span>Website URL</span>
             </button>
-            <button class="qr-tab-btn" id="tabText" type="button" role="tab" aria-selected="false" aria-controls="generatorPanel">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button class="qr-tab-btn" id="tabText" type="button" role="tab" aria-selected="false"
+              aria-controls="generatorPanel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
                 <path d="M14 3v6h6"></path>
                 <path d="M8 14h8M8 18h5"></path>
               </svg>
               <span>Plain Text</span>
             </button>
-            <button class="qr-tab-btn" id="tabWifi" type="button" role="tab" aria-selected="false" aria-controls="generatorPanel">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button class="qr-tab-btn" id="tabWifi" type="button" role="tab" aria-selected="false"
+              aria-controls="generatorPanel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
                 <path d="M8.5 16.05a6 6 0 0 1 7 0"></path>
                 <path d="M12 19.5h.01"></path>
               </svg>
               <span>WiFi Network</span>
             </button>
-            <button class="qr-tab-btn" id="tabScan" type="button" role="tab" aria-selected="false" aria-controls="scanPanel">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+            <button class="qr-tab-btn" id="tabScan" type="button" role="tab" aria-selected="false"
+              aria-controls="scanPanel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
                 <path d="M7 12h10M12 7v10" />
               </svg>
               <span>Scan QR</span>
@@ -626,13 +664,15 @@
               <!-- URL Form -->
               <div id="formURL">
                 <label class="field-label">Website URL</label>
-                <input type="url" id="qrUrlInput" class="form-input-box" placeholder="https://example.com" value="https://example.com">
+                <input type="url" id="qrUrlInput" class="form-input-box" placeholder="https://example.com"
+                  value="https://example.com">
               </div>
 
               <!-- Text Form -->
               <div id="formText" style="display: none;">
                 <label class="field-label">Text Content</label>
-                <textarea id="qrTextInput" class="form-input-box" style="height: 100px;" placeholder="Type any text here..."></textarea>
+                <textarea id="qrTextInput" class="form-input-box" style="height: 100px;"
+                  placeholder="Type any text here..."></textarea>
               </div>
 
               <!-- WiFi Form -->
@@ -668,7 +708,8 @@
 
               <div class="qr-generator-actions">
                 <button class="btn-primary" id="btnGenerateQR" type="button">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="7" height="7" />
                     <rect x="14" y="3" width="7" height="7" />
                     <rect x="3" y="14" width="7" height="7" />
@@ -683,8 +724,10 @@
             <!-- Output Card Area -->
             <div class="qr-output-card" id="qrOutputCard" hidden>
               <div id="qrcodeCanvas"></div>
-              <button class="btn-primary" id="btnDownloadQR" type="button" style="padding: 10px 18px; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
-                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="btn-primary" id="btnDownloadQR" type="button"
+                style="padding: 10px 18px; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3v12"></path>
                   <path d="m7 10 5 5 5-5"></path>
                   <path d="M5 21h14"></path>
@@ -698,7 +741,8 @@
           <section class="qr-scan-panel" id="scanPanel" role="tabpanel" aria-labelledby="tabScan" hidden>
             <div>
               <h2 class="tool-card-title">Scan a QR code</h2>
-              <p class="qr-scan-copy">Allow camera access to scan a QR code directly on this device. Nothing is uploaded or stored.</p>
+              <p class="qr-scan-copy">Allow camera access to scan a QR code directly on this device. Nothing is uploaded
+                or stored.</p>
             </div>
             <div class="qr-reader-frame">
               <div id="qrReader" aria-label="Live QR code camera view"></div>
@@ -708,8 +752,16 @@
               <div class="qr-scan-result-label">Decoded result</div>
               <p class="qr-scan-result-value" id="qrScanResultValue"></p>
               <div class="qr-scan-actions">
-                <button class="btn-primary" id="qrCopyResult" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span>Copy result</span></button>
-                <button class="btn-ghost" id="qrScanAgain" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v6h6" /></svg><span>Scan again</span></button>
+                <button class="btn-primary" id="qrCopyResult" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg><span>Copy result</span></button>
+                <button class="btn-ghost" id="qrScanAgain" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7" />
+                    <path d="M3 4v6h6" />
+                  </svg><span>Scan again</span></button>
               </div>
             </div>
           </section>
@@ -730,21 +782,24 @@
             <div class="step-num">1</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Choose Category</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Select URL, Plain Text, or WiFi Network connection mode.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Select URL, Plain Text, or WiFi Network connection
+                mode.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Enter Payload</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Fill in your web link, text notes, or network credentials.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Fill in your web link, text notes, or network
+                credentials.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Download PNG</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Download PNG' to save a clean, high-resolution QR image file.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Download PNG' to save a clean, high-resolution
+                QR image file.</p>
             </div>
           </div>
         </div>
@@ -759,15 +814,23 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>Do generated QR codes expire?</summary>
-            <div class="faq-answer"><p>No. These are static QR codes that encode your data directly into the matrix pattern without third-party redirect links. They never expire.</p></div>
+            <div class="faq-answer">
+              <p>No. These are static QR codes that encode your data directly into the matrix pattern without
+                third-party redirect links. They never expire.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>How does a WiFi QR code work?</summary>
-            <div class="faq-answer"><p>WiFi QR codes follow the standard `WIFI:S:ssid;T:type;P:password;;` format. When scanned by modern iOS or Android smartphones, the device prompts to join the network automatically.</p></div>
+            <div class="faq-answer">
+              <p>WiFi QR codes follow the standard `WIFI:S:ssid;T:type;P:password;;` format. When scanned by modern iOS
+                or Android smartphones, the device prompts to join the network automatically.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Are my WiFi passwords uploaded to a server?</summary>
-            <div class="faq-answer"><p>No. All QR matrix calculations happen purely inside your browser. No data leaves your machine.</p></div>
+            <div class="faq-answer">
+              <p>No. All QR matrix calculations happen purely inside your browser. No data leaves your machine.</p>
+            </div>
           </details>
         </div>
       </section>
@@ -983,7 +1046,7 @@
               setScanStatus('QR code detected');
               await stopScanner();
             },
-            () => {}
+            () => { }
           );
           setScanStatus('Scanning with your camera', true);
         } catch (error) {

@@ -2,6 +2,15 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
   <meta charset="UTF-8">
   <title>Cipher - Free Online Security &amp; File Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -485,7 +494,8 @@
       <ul>
         <li><b>Key Derivation:</b> PBKDF2 with SHA-256 algorithm and 250,000 iterations.</li>
         <li><b>Cipher:</b> AES-256-GCM authenticated encryption ensuring confidentiality and data integrity.</li>
-        <li><b>Local File Processing:</b> Selected files and passwords are processed in your browser and are not sent to Cipher for tool processing.</li>
+        <li><b>Local File Processing:</b> Selected files and passwords are processed in your browser and are not sent to
+          Cipher for tool processing.</li>
         <li><b>Binary Container:</b> Encrypted files output as `.cipher` files with preserved metadata.</li>
       </ul>
       <button class="btn-primary" id="closeModalBtn">Got it</button>

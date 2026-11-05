@@ -2,23 +2,38 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZVXNKQ5PK8');
+  </script>
+
   <meta charset="UTF-8">
   <title>Strong Password Generator – Free & Secure Online Tool | Cipher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#111317">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://example.com/tools/password-generator/">
-  <meta name="description" content="Generate cryptographically strong, random passwords offline in your browser. Customize password length, uppercase, lowercase, numbers, symbols, and avoid ambiguous characters.">
-  <meta name="keywords" content="free password generator, secure password generator, offline password generator, random passwords, private password tool">
+  <meta name="description"
+    content="Generate cryptographically strong, random passwords offline in your browser. Customize password length, uppercase, lowercase, numbers, symbols, and avoid ambiguous characters.">
+  <meta name="keywords"
+    content="free password generator, secure password generator, offline password generator, random passwords, private password tool">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Strong Password Generator – Cipher">
-  <meta property="og:description" content="Generate cryptographically strong passwords locally using Web Crypto API. Zero server tracking.">
+  <meta property="og:description"
+    content="Generate cryptographically strong passwords locally using Web Crypto API. Zero server tracking.">
   <meta property="og:url" content="https://example.com/tools/password-generator/">
   <meta property="og:image" content="/images/Cipher.png">
   <link rel="icon" type="image/svg+xml" href="/images/cipher-favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
     .tool-card-container {
@@ -99,9 +114,17 @@
       font-weight: 700;
     }
 
-    .strength-label[data-strength="weak"] span.val { color: var(--error); }
-    .strength-label[data-strength="medium"] span.val { color: #f5a623; }
-    .strength-label[data-strength="strong"] span.val { color: #22a06b; }
+    .strength-label[data-strength="weak"] span.val {
+      color: var(--error);
+    }
+
+    .strength-label[data-strength="medium"] span.val {
+      color: #f5a623;
+    }
+
+    .strength-label[data-strength="strong"] span.val {
+      color: #22a06b;
+    }
 
     .output-display {
       position: relative;
@@ -189,7 +212,8 @@
       height: 18px;
     }
 
-    .how-to-section, .faq-section-tool {
+    .how-to-section,
+    .faq-section-tool {
       margin-top: 60px;
     }
 
@@ -263,12 +287,16 @@
     }
 
     @keyframes stepNumberFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(0deg);
       }
+
       35% {
         transform: translateY(-2px) rotate(-3deg);
       }
+
       68% {
         transform: translateY(1px) rotate(2deg);
       }
@@ -335,18 +363,24 @@
     }
 
     @keyframes generateIconReady {
-      0%, 70%, 100% {
+
+      0%,
+      70%,
+      100% {
         transform: rotate(0deg);
       }
+
       78% {
         transform: rotate(18deg);
       }
+
       86% {
         transform: rotate(-12deg);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .step-card,
       .step-num,
       .generate-btn,
@@ -375,9 +409,11 @@
           <img src="/images/Cipher.png" alt="Cipher Logo">
         </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span class="menu-toggle-label">Menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
@@ -389,8 +425,10 @@
         <li>
           <a href="/tools/encrypt/" class="btn-nav">
             Protect File
-            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            <svg class="protect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
             </svg>
           </a>
         </li>
@@ -407,7 +445,8 @@
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">Password Generator</h1>
-        <p class="section-sub">Generate strong, unpredictable random passwords using cryptographically secure random values directly in your browser.</p>
+        <p class="section-sub">Generate strong, unpredictable random passwords using cryptographically secure random
+          values directly in your browser.</p>
         <div class="tool-badges" aria-label="Password generator benefits">
           <span class="tool-badge">100% Client-Side</span>
           <span class="tool-badge">No Data Sent</span>
@@ -422,7 +461,11 @@
           <div class="output-display">
             <span class="output-text" id="passwordOutput">Select options...</span>
             <button class="copy-btn" id="copyPasswordBtn" type="button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
               Copy
             </button>
           </div>
@@ -458,7 +501,8 @@
 
           <!-- Strength Meter -->
           <div style="margin-bottom: 24px;">
-            <div class="strength" id="strengthMeter" role="meter" aria-label="Password strength" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Weak">
+            <div class="strength" id="strengthMeter" role="meter" aria-label="Password strength" aria-valuemin="0"
+              aria-valuemax="100" aria-valuenow="0" aria-valuetext="Weak">
               <i></i><i></i><i></i><i></i>
             </div>
             <div class="strength-label">
@@ -468,7 +512,8 @@
           </div>
 
           <button class="btn-primary generate-btn" id="generateBtn" type="button">
-            <svg class="generate-btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="generate-btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 11a8.1 8.1 0 0 0-14.8-3L3 11"></path>
               <path d="M3 4v7h7"></path>
               <path d="M4 13a8.1 8.1 0 0 0 14.8 3L21 13"></path>
@@ -494,21 +539,24 @@
             <div class="step-num">1</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Set Length & Character Sets</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Adjust the length slider and select character categories like uppercase, lowercase, digits, and special symbols.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Adjust the length slider and select character
+                categories like uppercase, lowercase, digits, and special symbols.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Generate Password</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Generate New Password' to compute a fresh, unguessable string using window.crypto API.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Click 'Generate New Password' to compute a fresh,
+                unguessable string using window.crypto API.</p>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div>
               <h3 style="font-size: 16px; margin-bottom: 4px; color: var(--text);">Copy Securely</h3>
-              <p style="font-size: 13.5px; color: var(--text-2);">Click the 'Copy' button to copy the generated password directly to your clipboard for instant use in password managers.</p>
+              <p style="font-size: 13.5px; color: var(--text-2);">Click the 'Copy' button to copy the generated password
+                directly to your clipboard for instant use in password managers.</p>
             </div>
           </div>
         </div>
@@ -523,15 +571,25 @@
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>Are generated passwords sent to any server?</summary>
-            <div class="faq-answer"><p>No. Passwords are created entirely in your browser memory using Web Crypto random generator APIs (`window.crypto.getRandomValues`). No network requests are made.</p></div>
+            <div class="faq-answer">
+              <p>No. Passwords are created entirely in your browser memory using Web Crypto random generator APIs
+                (`window.crypto.getRandomValues`). No network requests are made.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>What makes a password cryptographically secure?</summary>
-            <div class="faq-answer"><p>A cryptographically secure password uses random numbers generated from hardware entropy rather than predictable pseudo-random algorithms like `Math.random()`, ensuring maximum resistance against cracking.</p></div>
+            <div class="faq-answer">
+              <p>A cryptographically secure password uses random numbers generated from hardware entropy rather than
+                predictable pseudo-random algorithms like `Math.random()`, ensuring maximum resistance against cracking.
+              </p>
+            </div>
           </details>
           <details class="faq-item">
             <summary>Why should I exclude ambiguous characters?</summary>
-            <div class="faq-answer"><p>Excluding ambiguous characters like `1`, `l`, `I`, `0`, and `O` prevents confusion when manually typing or reading passwords across different fonts and screens.</p></div>
+            <div class="faq-answer">
+              <p>Excluding ambiguous characters like `1`, `l`, `I`, `0`, and `O` prevents confusion when manually typing
+                or reading passwords across different fonts and screens.</p>
+            </div>
           </details>
         </div>
       </section>
