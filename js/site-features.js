@@ -14,9 +14,15 @@
 
   const consentStorageKey = 'cipher-site-consent-v1';
   const optionalCategories = ['advertising', 'analytics'];
+  const optionalProviderScripts = {
+    advertising: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9024052226422617',
+    analytics: 'https://www.googletagmanager.com/gtag/js?id=G-ZVXNKQ5PK8'
+  };
+  const approvedExternalScripts = new Set(Object.values(optionalProviderScripts));
   let savedConsent = readConsent();
   let closeTimer;
   let returnFocusTarget = null;
+  let analyticsConfigured = false;
 
   const consentStylesheet = document.createElement('link');
   consentStylesheet.rel = 'stylesheet';
@@ -71,12 +77,17 @@
     }
 
     savedConsent = choice;
+    let revokedScripts = false;
     optionalCategories.filter(category => previousConsent?.[category] && !choice[category]).forEach(category => {
-      document.querySelectorAll(`script[data-cipherConsentCategory="${category}"]`)
-        .forEach(script => script.remove());
+      document.querySelectorAll('script[data-cipher-consent-category]')
+        .forEach(script => {
+          if (script.dataset.cipherConsentCategory !== category) return;
+          revokedScripts = true;
+          script.remove();
+        });
     });
     emitConsentChange();
-    return persisted;
+    return { persisted, revokedScripts };
   }
 
   function hasConsent(category) {
@@ -91,7 +102,7 @@
     if (!hasConsent(category)) return Promise.resolve(false);
 
     const scriptUrl = new URL(src, window.location.href);
-    if (scriptUrl.origin !== window.location.origin) {
+    if (scriptUrl.origin !== window.location.origin && !approvedExternalScripts.has(scriptUrl.href)) {
       return Promise.reject(new Error('Third-party scripts cannot run in the page context. Use an isolated integration.'));
     }
 
@@ -177,7 +188,6 @@
                 aria-label="Analytics" data-consent-toggle="analytics"></button>
             </div>
           </div>
-          <a class="cookie-consent-policy" href="/privacy/">Privacy Policy</a>
         </div>
         <div class="cookie-consent-preferences-footer" hidden>
           <p class="cookie-consent-save-status" role="status" aria-live="polite"></p>
@@ -206,7 +216,19 @@
 
     const footer = document.querySelector('footer .container');
     if (footer) {
-      footer.append(settingsLink);
+      const footerLinks = Array.from(footer.children).find(element =>
+        element.querySelector('a[href="/about/"]')
+      );
+      if (footerLinks) {
+        footerLinks.append(settingsLink);
+      } else {
+        const privacyLink = footer.querySelector('a[href="/privacy/"]');
+        if (privacyLink) {
+          privacyLink.parentElement.append(document.createTextNode(' · '), settingsLink);
+        } else {
+          footer.append(settingsLink);
+        }
+      }
     } else {
       console.warn('Privacy settings link could not be added because this page has no footer.');
     }
@@ -293,7 +315,11 @@
         const analytics = action === 'accept' || (
           action === 'save' && backdrop.querySelector('[data-consent-toggle="analytics"]').getAttribute('aria-checked') === 'true'
         );
-        const persisted = saveConsent(advertising, analytics);
+        const { persisted, revokedScripts } = saveConsent(advertising, analytics);
+        if (revokedScripts) {
+          window.location.reload();
+          return;
+        }
         if (!persisted) {
           showView('preferences');
           setSwitch('advertising', advertising);
@@ -350,37 +376,40 @@
     }));
   }
 
-  function retireLegacyPwa() {
-    const cleanupTasks = [];
+  function registerOfflineWorker() {
+    if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
 
-    if ('serviceWorker' in navigator) {
-      cleanupTasks.push(
-        navigator.serviceWorker.getRegistrations().then(registrations =>
-          Promise.all(registrations.filter(registration => {
-            const scriptUrl = registration.active?.scriptURL || registration.waiting?.scriptURL || registration.installing?.scriptURL;
-            return scriptUrl && new URL(scriptUrl).origin === window.location.origin &&
-              new URL(scriptUrl).pathname.endsWith('/sw.js');
-          }).map(registration => registration.unregister()))
-        )
-      );
-    }
-
-    if ('caches' in window) {
-      cleanupTasks.push(
-        caches.keys().then(keys => Promise.all(
-          keys.filter(key => key.startsWith('cipher-shell-')).map(key => caches.delete(key))
-        ))
-      );
-    }
-
-    Promise.all(cleanupTasks).catch(error => {
-      console.error('Could not retire Cipher offline app data.', error);
+    navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).catch(error => {
+      console.error('Could not register Cipher offline support.', error);
     });
   }
 
+  function loadConsentedProviderScripts(consent) {
+    if (consent?.advertising) {
+      loadScript(optionalProviderScripts.advertising, 'advertising', { crossorigin: 'anonymous' })
+        .catch(error => console.error('Could not load advertising after consent.', error));
+    }
+
+    if (consent?.analytics) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      if (!analyticsConfigured) {
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-ZVXNKQ5PK8');
+        analyticsConfigured = true;
+      }
+      loadScript(optionalProviderScripts.analytics, 'analytics')
+        .catch(error => console.error('Could not load analytics after consent.', error));
+    }
+  }
+
   function initialize() {
-    retireLegacyPwa();
+    registerOfflineWorker();
     setupConsentControls();
+    window.addEventListener('cipher:consentchange', event => {
+      loadConsentedProviderScripts(event.detail);
+    });
+    loadConsentedProviderScripts(window.CipherConsent.getConsent());
   }
 
   if (document.readyState === 'loading') {

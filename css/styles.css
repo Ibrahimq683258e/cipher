@@ -51,46 +51,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .app-loading-shell {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      display: grid;
-      place-items: center;
-      background: var(--bg);
-      opacity: 1;
-      transition: opacity 0.28s ease, visibility 0.28s ease;
-    }
-
-    .app-loading-shell.is-ready {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .app-loading-card {
-      display: grid;
-      gap: 10px;
-      width: min(260px, 62vw);
-    }
-
-    .app-loading-card span {
-      display: block;
-      height: 10px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(90deg, var(--surface-2), var(--surface-3), var(--surface-2));
-      background-size: 220% 100%;
-      animation: skeletonShimmer 1.25s ease-in-out infinite;
-    }
-
-    .app-loading-card span:nth-child(2) { width: 78%; }
-    .app-loading-card span:nth-child(3) { width: 56%; }
-
-    @keyframes skeletonShimmer {
-      0% { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
-    }
-
     ::selection {
       background: var(--primary-dim);
       color: var(--primary);
@@ -2263,7 +2223,6 @@
       .btn-nav .protect-icon,
       .section-divider,
       .section-divider::after,
-      .app-loading-card span,
       .tool-online-dot {
         animation: none;
       }
@@ -2273,9 +2232,6 @@
         animation: none;
       }
 
-      .app-loading-shell {
-        transition: none;
-      }
     }
 
 /* Light Theme Overrides when data-bs-theme="light" */

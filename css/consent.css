@@ -158,10 +158,8 @@
   background: var(--primary-dim);
 }
 
-.cookie-consent-customize,
-.cookie-settings-button {
+.cookie-consent-customize {
   width: fit-content;
-  justify-self: center;
   padding: 5px 8px;
   border: 0;
   background: transparent;
@@ -174,10 +172,23 @@
   text-underline-offset: 3px;
 }
 
+.cookie-settings-button {
+  padding: 0;
+  color: var(--text-2);
+}
+
 .cookie-consent-customize:hover,
 .cookie-settings-button:hover {
   color: var(--primary);
+}
+
+.cookie-consent-customize:hover {
   text-decoration: underline;
+}
+
+.cookie-settings-button:hover {
+  color: var(--text-2);
+  text-decoration: none;
 }
 
 .cookie-consent-options {

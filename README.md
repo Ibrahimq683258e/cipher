@@ -8,7 +8,7 @@ There is no backend, build process, or package installation required.
 
 - A modern browser with Web Crypto API support, such as current Chrome, Edge, Firefox, or Safari
 - Python 3, Node.js, or a VS Code static-server extension for the recommended local run method
-- Internet access when loading Cloudflare Turnstile on the contact page or Google Fonts
+- Internet access for the contact form (Cloudflare Turnstile and Google Apps Script), Google AdSense, and analytics
 
 ## Run Locally
 
@@ -50,6 +50,7 @@ To stop a terminal server, press `Ctrl+C` in the terminal running it.
 - **PBKDF2 Key Derivation**: High-iteration key derivation (`250,000` iterations of `SHA-256` with a `16-byte` cryptographically random salt).
 - **Drag & Drop Uploads**: Process files of any type and size.
 - **Client-Side QR Scanning**: Scan QR codes with your device camera and copy decoded results without uploading images or camera frames.
+- **Local Assets & Offline Support**: Fonts and tool libraries are hosted with the site. After the first successful load, the service worker serves cached pages and assets immediately while refreshing them in the background. Third-party services, including contact verification, still require a network connection.
 - **Batch Encryption**: Select or drop multiple files, review their type and size, and encrypt them sequentially with one password.
 - **Batch Downloads**: Download the first result or download every generated `.cipher` file from the completed batch.
 - **Output Naming**: Encrypted output files are generated as `filename.ext.cipher` and retain their original UTF-8 filename inside the header for seamless decryption.
@@ -93,13 +94,13 @@ Opening `index.html` directly may display the page, but the Turnstile-protected 
 
 - Files, passwords, and encryption results stay in browser memory during processing.
 - Cipher does not receive files or passwords for tool processing, but this does not mean every part of the site processes data locally.
-- The site host may receive technical request data. The contact page uses Cloudflare Turnstile and Google Apps Script; pages load Google Fonts.
-- The site includes a cookie choice interface for necessary storage, advertising, and analytics. First-party optional scripts can be loaded after consent with `window.CipherConsent.loadScript(url, "advertising")` or `window.CipherConsent.loadScript(url, "analytics")`; listen for `cipher:consentchange` to respond when choices change. Third-party scripts are not allowed in the page context; integrate them only through an appropriately isolated provider setup.
+- The site host may receive technical request data. Fonts and the QR scanner library are hosted with the site. The contact page uses Cloudflare Turnstile and Google Apps Script.
+- The site includes a cookie choice interface for necessary storage, advertising, and analytics. Google AdSense and Analytics scripts load only after consent for their respective categories. Revoking consent unloads their script elements and reloads the page to stop already-running provider code. `window.CipherConsent.loadScript(url, category)` accepts first-party scripts and the configured Google provider scripts only.
 - Never send file contents, passwords, encryption keys, tool inputs, or generated results to advertising or analytics services.
-- Ad and analytics provider scripts are not included in this repository. Add the selected provider names, policy links, and configuration details to the Privacy Policy before publishing those integrations.
+- Ad and analytics provider scripts are loaded directly from Google only after the visitor opts in. Keep provider details and policy links accurate in the Privacy Policy.
 
 ## Deployment
 
-Cipher can be deployed as a static website to GitHub Pages, Netlify, Vercel, or any other host that serves static files over HTTPS. Keep the project structure unchanged so relative paths to `css/` and `images/` continue to resolve.
+Cipher can be deployed as a static website to GitHub Pages, Netlify, Vercel, or any other host that serves static files over HTTPS. Keep the project structure unchanged so relative paths to `css/` and `images/` continue to resolve. Offline caching requires HTTPS (or localhost) and takes effect after a successful first load.
 
 Before deployment, replace the `https://example.com` placeholder in `robots.txt`, `sitemap.xml`, and page metadata with the real production domain.

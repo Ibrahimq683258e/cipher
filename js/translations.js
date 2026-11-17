@@ -860,6 +860,9 @@
 
       trigger.addEventListener('click', () => {
         const opening = trigger.getAttribute('aria-expanded') !== 'true';
+        if (opening && menuToggle?.getAttribute('aria-expanded') === 'true') {
+          menuToggle.click();
+        }
         item.classList.toggle('is-open', opening);
         trigger.setAttribute('aria-expanded', String(opening));
         menu.hidden = !opening;
@@ -869,6 +872,7 @@
       });
       item.addEventListener('keydown', event => {
         if (event.key === 'Escape') {
+          event.stopPropagation();
           closeMenu();
           trigger.focus();
         }
@@ -938,10 +942,6 @@
       activeLocale = detectLanguage();
     }
 
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = '/css/i18n.css';
-    document.head.append(stylesheet);
     addLanguageSwitcher();
     applyLanguage();
 

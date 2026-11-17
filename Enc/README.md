@@ -91,10 +91,10 @@ Opening `index.html` directly may display the page, but the Turnstile-protected 
 
 - Files, passwords, and encryption results stay in browser memory during processing.
 - Cipher does not receive files or passwords for tool processing, but this does not mean every part of the site processes data locally.
-- The site host may receive technical request data. The contact page uses Cloudflare Turnstile and Google Apps Script; pages load Google Fonts.
-- The site includes a cookie choice interface for necessary storage, advertising, and analytics. First-party optional scripts can be loaded after consent with `window.CipherConsent.loadScript(url, "advertising")` or `window.CipherConsent.loadScript(url, "analytics")`; listen for `cipher:consentchange` to respond when choices change. Third-party scripts are not allowed in the page context; integrate them only through an appropriately isolated provider setup.
+- The site host may receive technical request data. Fonts are hosted locally. The contact page uses Cloudflare Turnstile and Google Apps Script.
+- The site includes a cookie choice interface for necessary storage, advertising, and analytics. Google AdSense and Analytics scripts load only after consent for their respective categories. Revoking consent unloads their script elements and reloads the page to stop already-running provider code. `window.CipherConsent.loadScript(url, category)` accepts first-party scripts and the configured Google provider scripts only.
 - Never send file contents, passwords, encryption keys, tool inputs, or generated results to advertising or analytics services.
-- Ad and analytics provider scripts are not included in this repository. Add the selected provider names, policy links, and configuration details to the Privacy Policy before publishing those integrations.
+- Ad and analytics provider scripts are loaded directly from Google only after the visitor opts in. Keep provider details and policy links accurate in the Privacy Policy.
 
 ## Deployment
 

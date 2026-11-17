@@ -17,6 +17,71 @@ siteFeaturesScript.addEventListener('error', () => {
 }, { once: true });
 document.head.append(siteFeaturesScript);
 
+function getSavedTheme() {
+  try {
+    return localStorage.getItem('cipher-theme') === 'dark' ? 'dark' : 'light';
+  } catch (error) {
+    console.error('Could not read the saved theme preference.', error);
+    return 'light';
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem('cipher-theme', theme);
+  } catch (error) {
+    console.error('Could not save the theme preference.', error);
+  }
+}
+
+function initializeNavigation() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (!menuToggle || !navLinks) return;
+
+  const closeMenu = () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const closeLanguageSwitchers = () => {
+    document.querySelectorAll('.language-switcher.is-open').forEach(item => {
+      item.classList.remove('is-open');
+      item.querySelector('.language-switcher-trigger')?.setAttribute('aria-expanded', 'false');
+      const languageMenu = item.querySelector('.language-switcher-menu');
+      if (languageMenu) languageMenu.hidden = true;
+    });
+  };
+
+  menuToggle.addEventListener('click', event => {
+    event.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) closeLanguageSwitchers();
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', event => {
+    if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeNavigation, { once: true });
+} else {
+  initializeNavigation();
+}
+
 if (!window.CipherI18n && !document.querySelector('script[data-cipher-translations]')) {
   const translationsScript = document.createElement('script');
   translationsScript.src = '/js/translations.js';
@@ -25,17 +90,8 @@ if (!window.CipherI18n && !document.querySelector('script[data-cipher-translatio
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const loadingShell = document.createElement('div');
-  loadingShell.className = 'app-loading-shell';
-  loadingShell.setAttribute('role', 'status');
-  loadingShell.setAttribute('aria-label', 'Loading Cipher');
-  loadingShell.innerHTML = '<div class="app-loading-card"><span></span><span></span><span></span></div>';
-  document.body.prepend(loadingShell);
-  requestAnimationFrame(() => loadingShell.classList.add('is-ready'));
-  window.setTimeout(() => loadingShell.remove(), 1400);
-
   // Theme Toggle Support (default dark)
-  const savedTheme = localStorage.getItem('cipher-theme') || 'light';
+  const savedTheme = getSavedTheme();
   document.documentElement.setAttribute('data-bs-theme', savedTheme);
   document.documentElement.classList.toggle('dark', savedTheme === 'dark');
 
@@ -51,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-bs-theme', next);
       document.documentElement.classList.toggle('dark', next === 'dark');
-      localStorage.setItem('cipher-theme', next);
+      saveTheme(next);
       btn.setAttribute('aria-label', `Switch to ${next === 'dark' ? 'light' : 'dark'} mode`);
       btn.innerHTML = next === 'dark'
         ? `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
@@ -118,37 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('online', updateConnectionStatus);
   window.addEventListener('offline', updateConnectionStatus);
   updateConnectionStatus();
-
-  // Mobile Menu Toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (menuToggle && navLinks) {
-    const closeMenu = () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    };
-
-    menuToggle.addEventListener('click', event => {
-      event.stopPropagation();
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', event => {
-      if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeMenu();
-        menuToggle.focus();
-      }
-    });
-  }
 
   document.querySelectorAll('label.field-label').forEach(label => {
     if (label.htmlFor) return;
